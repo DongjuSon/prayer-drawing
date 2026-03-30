@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prayer Topic Drawing - Missionary Prayer Guide</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Initial State: Draw Button -->
+        <div id="draw-screen" class="screen active">
+            <div class="content">
+                <h1 class="title">Prayer Topic Drawing</h1>
+                <p class="subtitle">Draw a prayer topic and discover a missionary country to pray for</p>
+                <button id="draw-btn" class="draw-button">
+                    <span class="btn-text">Draw Prayer Topic</span>
+                    <span class="btn-icon">🙏</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Loading Animation -->
+        <div id="loading-screen" class="screen">
+            <div class="loading-animation">
+                <div class="card-shuffle">
+                    <div class="card"></div>
+                    <div class="card"></div>
+                    <div class="card"></div>
+                </div>
+                <p class="loading-text">Drawing your prayer topic...</p>
+            </div>
+        </div>
+
+        <!-- Result Screen -->
+        <div id="result-screen" class="screen">
+            <div class="result-card">
+                <div class="card-header">
+                    <h2>Your Prayer Topic</h2>
+                </div>
+                <div class="card-body">
+                    <div class="verse-section">
+                        <p id="verse-text" class="verse-text"></p>
+                        <p id="verse-reference" class="verse-reference"></p>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="country-section">
+                        <h3>Missionary Target Country</h3>
+                        <div class="country-info">
+                            <p id="country-flag" class="country-flag"></p>
+                            <p id="country-name" class="country-name"></p>
+                        </div>
+                        <p id="country-description" class="country-description"></p>
+                        <div class="prayer-points">
+                            <h4>Prayer Points:</h4>
+                            <ul id="prayer-points-list"></ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button id="draw-again-btn" class="draw-again-button">Draw Again</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>May your prayers bring hope and light to the nations 🌍</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

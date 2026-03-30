@@ -1,0 +1,439 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #4a90e2;
+    --secondary-color: #7b68ee;
+    --accent-color: #ff6b6b;
+    --text-dark: #2c3e50;
+    --text-light: #ffffff;
+    --bg-gradient-start: #667eea;
+    --bg-gradient-end: #764ba2;
+    --card-bg: #ffffff;
+    --shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 15px 60px rgba(0, 0, 0, 0.15);
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: var(--text-dark);
+    overflow-x: hidden;
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+}
+
+/* Screen Management */
+.screen {
+    position: absolute;
+    width: 100%;
+    max-width: 800px;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.9);
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.screen.active {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+/* Draw Screen */
+#draw-screen .content {
+    text-align: center;
+}
+
+.title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    animation: fadeInDown 1s ease-out;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 3rem;
+    animation: fadeInUp 1s ease-out 0.2s backwards;
+}
+
+.draw-button {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 50px;
+    padding: 20px 50px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-light);
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    animation: fadeInUp 1s ease-out 0.4s backwards;
+    position: relative;
+    overflow: hidden;
+}
+
+.draw-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.draw-button:hover::before {
+    left: 100%;
+}
+
+.draw-button:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.draw-button:active {
+    transform: translateY(-2px);
+}
+
+.btn-icon {
+    font-size: 2rem;
+}
+
+/* Loading Animation */
+#loading-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading-animation {
+    text-align: center;
+}
+
+.card-shuffle {
+    position: relative;
+    width: 200px;
+    height: 280px;
+    margin: 0 auto 2rem;
+}
+
+.card {
+    position: absolute;
+    width: 140px;
+    height: 200px;
+    background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.card:nth-child(1) {
+    animation: shuffle1 1.5s infinite;
+}
+
+.card:nth-child(2) {
+    animation: shuffle2 1.5s infinite;
+}
+
+.card:nth-child(3) {
+    animation: shuffle3 1.5s infinite;
+}
+
+@keyframes shuffle1 {
+    0%, 100% { transform: translate(-50%, -50%) rotate(0deg); }
+    33% { transform: translate(-80%, -50%) rotate(-10deg); }
+    66% { transform: translate(-20%, -50%) rotate(10deg); }
+}
+
+@keyframes shuffle2 {
+    0%, 100% { transform: translate(-50%, -50%) rotate(0deg); }
+    33% { transform: translate(-20%, -50%) rotate(10deg); }
+    66% { transform: translate(-80%, -50%) rotate(-10deg); }
+}
+
+@keyframes shuffle3 {
+    0%, 100% { transform: translate(-50%, -50%) rotate(0deg) scale(0.95); }
+    50% { transform: translate(-50%, -50%) rotate(0deg) scale(1.05); }
+}
+
+.loading-text {
+    font-size: 1.3rem;
+    color: var(--text-light);
+    font-weight: 500;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+/* Result Screen */
+.result-card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    animation: cardAppear 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+@keyframes cardAppear {
+    0% {
+        transform: scale(0.8) rotateY(90deg);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1) rotateY(0deg);
+        opacity: 1;
+    }
+}
+
+.card-header {
+    background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+    padding: 30px;
+    text-align: center;
+}
+
+.card-header h2 {
+    color: var(--text-light);
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.card-body {
+    padding: 40px;
+}
+
+.verse-section {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.verse-text {
+    font-size: 1.5rem;
+    line-height: 1.8;
+    color: var(--text-dark);
+    font-style: italic;
+    margin-bottom: 15px;
+    font-weight: 400;
+}
+
+.verse-reference {
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
+.divider {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+    margin: 30px 0;
+}
+
+.country-section {
+    text-align: center;
+}
+
+.country-section h3 {
+    font-size: 1.5rem;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+}
+
+.country-info {
+    margin-bottom: 20px;
+}
+
+.country-flag {
+    font-size: 4rem;
+    margin-bottom: 10px;
+    animation: bounceIn 0.8s;
+}
+
+@keyframes bounceIn {
+    0% { transform: scale(0); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.country-name {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.country-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-dark);
+    margin-bottom: 25px;
+    padding: 0 20px;
+}
+
+.prayer-points {
+    text-align: left;
+    background: #f8f9fa;
+    padding: 20px 30px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.prayer-points h4 {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+.prayer-points ul {
+    list-style: none;
+    padding: 0;
+}
+
+.prayer-points li {
+    padding: 8px 0;
+    padding-left: 25px;
+    position: relative;
+    line-height: 1.6;
+}
+
+.prayer-points li::before {
+    content: '🙏';
+    position: absolute;
+    left: 0;
+}
+
+.card-footer {
+    padding: 30px;
+    text-align: center;
+    background: #f8f9fa;
+}
+
+.draw-again-button {
+    background: linear-gradient(135deg, var(--accent-color) 0%, #ee5a6f 100%);
+    border: none;
+    border-radius: 50px;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-light);
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(255, 107, 107, 0.3);
+    transition: all 0.3s ease;
+}
+
+.draw-again-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(255, 107, 107, 0.4);
+}
+
+.draw-again-button:active {
+    transform: translateY(-1px);
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 20px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .title {
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .draw-button {
+        font-size: 1.2rem;
+        padding: 15px 35px;
+    }
+
+    .card-body {
+        padding: 25px;
+    }
+
+    .verse-text {
+        font-size: 1.2rem;
+    }
+
+    .country-flag {
+        font-size: 3rem;
+    }
+
+    .country-name {
+        font-size: 1.5rem;
+    }
+
+    .country-description {
+        font-size: 1rem;
+    }
+
+    .prayer-points {
+        padding: 15px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .card-header h2 {
+        font-size: 1.5rem;
+    }
+}
