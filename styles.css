@@ -5,26 +5,43 @@
 }
 
 :root {
-    --primary-color: #4a90e2;
-    --secondary-color: #7b68ee;
-    --accent-color: #ff6b6b;
-    --text-dark: #2c3e50;
+    --green-light: #c8d8b4;
+    --green-soft: #9dc88d;
+    --green-medium: #7ab55c;
+    --blue-soft: #a8c5dd;
+    --blue-medium: #7ba7c7;
+    --text-dark: #5a6650;
     --text-light: #ffffff;
-    --bg-gradient-start: #667eea;
-    --bg-gradient-end: #764ba2;
-    --card-bg: #ffffff;
-    --shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-    --shadow-hover: 0 15px 60px rgba(0, 0, 0, 0.15);
+    --text-overlay: rgba(255, 255, 255, 0.95);
+    --glass-bg: rgba(255, 255, 255, 0.15);
+    --glass-border: rgba(255, 255, 255, 0.3);
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+    font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     color: var(--text-dark);
     overflow-x: hidden;
+    background: linear-gradient(135deg, #c8d8b4 0%, #9dc88d 50%, #b8c9a0 100%);
+    position: relative;
+}
+
+/* Watercolor texture overlay */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(200, 216, 180, 0.4) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
 }
 
 .container {
@@ -34,17 +51,18 @@ body {
     align-items: center;
     padding: 20px;
     position: relative;
+    z-index: 1;
 }
 
 /* Screen Management */
 .screen {
     position: absolute;
     width: 100%;
-    max-width: 800px;
+    max-width: 600px;
     opacity: 0;
     visibility: hidden;
-    transform: scale(0.9);
-    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transform: scale(0.95);
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 .screen.active {
@@ -53,75 +71,96 @@ body {
     transform: scale(1);
 }
 
-/* Draw Screen */
+/* ============================================
+   DRAW SCREEN - "His Plan" Design
+   ============================================ */
+
+#draw-screen {
+    max-width: 500px;
+}
+
 #draw-screen .content {
     text-align: center;
+    padding: 40px 20px;
 }
 
 .title {
-    font-size: 3rem;
+    font-family: 'Caveat', cursive;
+    font-size: 5rem;
     font-weight: 700;
     color: var(--text-light);
     margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    line-height: 1;
+    text-shadow: 2px 3px 6px rgba(0, 0, 0, 0.15);
     animation: fadeInDown 1s ease-out;
+    letter-spacing: 2px;
+}
+
+.star-divider {
+    font-size: 1.5rem;
+    color: var(--text-light);
+    margin: 20px 0;
+    opacity: 0.8;
 }
 
 .subtitle {
-    font-size: 1.2rem;
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 3rem;
+    font-size: 0.95rem;
+    color: rgba(90, 102, 80, 0.85);
+    line-height: 1.8;
+    margin: 30px auto;
+    max-width: 380px;
+    font-weight: 400;
     animation: fadeInUp 1s ease-out 0.2s backwards;
 }
 
+.cta-text {
+    margin: 40px auto 30px;
+    max-width: 350px;
+}
+
+.cta-text p {
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    line-height: 1.6;
+    font-weight: 400;
+}
+
 .draw-button {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border: none;
-    border-radius: 50px;
-    padding: 20px 50px;
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--text-light);
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 30px;
+    padding: 15px 40px;
+    font-size: 2.5rem;
     cursor: pointer;
-    box-shadow: var(--shadow);
     transition: all 0.3s ease;
     display: inline-flex;
     align-items: center;
-    gap: 15px;
+    justify-content: center;
     animation: fadeInUp 1s ease-out 0.4s backwards;
-    position: relative;
-    overflow: hidden;
-}
-
-.draw-button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-    transition: left 0.5s;
-}
-
-.draw-button:hover::before {
-    left: 100%;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
 }
 
 .draw-button:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-hover);
+    transform: translateY(-3px) scale(1.05);
+    background: rgba(255, 255, 255, 0.45);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
 }
 
 .draw-button:active {
-    transform: translateY(-2px);
+    transform: translateY(-1px) scale(1.02);
 }
 
 .btn-icon {
-    font-size: 2rem;
+    font-size: 2.5rem;
 }
 
-/* Loading Animation */
+/* ============================================
+   LOADING ANIMATION
+   ============================================ */
+
 #loading-screen {
     display: flex;
     justify-content: center;
@@ -143,12 +182,13 @@ body {
     position: absolute;
     width: 140px;
     height: 200px;
-    background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 240, 240, 0.9) 100%);
     border-radius: 15px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    backdrop-filter: blur(10px);
 }
 
 .card:nth-child(1) {
@@ -181,9 +221,9 @@ body {
 }
 
 .loading-text {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     color: var(--text-light);
-    font-weight: 500;
+    font-weight: 400;
     animation: pulse 1.5s infinite;
 }
 
@@ -192,180 +232,232 @@ body {
     50% { opacity: 1; }
 }
 
-/* Result Screen */
-.result-card {
-    background: var(--card-bg);
-    border-radius: 20px;
-    box-shadow: var(--shadow);
+/* ============================================
+   RESULT SCREEN - Glassmorphism Card
+   ============================================ */
+
+#result-screen {
+    max-width: 600px;
+    width: 100%;
+    height: 90vh;
+    max-height: 900px;
+}
+
+/* Background for result screen - changes per country */
+#result-screen.active {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 30px;
     overflow: hidden;
-    animation: cardAppear 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    max-height: 90vh;
-    overflow-y: auto;
+    position: relative;
+}
+
+/* Country-specific backgrounds */
+#result-screen[data-country="japan"] {
+    background-image: linear-gradient(135deg, rgba(168, 197, 221, 0.5), rgba(123, 167, 199, 0.5)),
+                      url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%237ba7c7" width="1200" height="800"/><path fill="%23a8c5dd" opacity="0.3" d="M0 400 Q 300 300, 600 400 T 1200 400 L1200 800 L0 800 Z"/></svg>');
+}
+
+#result-screen[data-country="korea"] {
+    background-image: linear-gradient(135deg, rgba(200, 180, 140, 0.5), rgba(160, 140, 100, 0.5)),
+                      url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23a08c64" width="1200" height="800"/><path fill="%23c8b48c" opacity="0.3" d="M0 500 Q 400 400, 800 500 T 1200 500 L1200 800 L0 800 Z"/></svg>');
+}
+
+#result-screen[data-country="china"] {
+    background-image: linear-gradient(135deg, rgba(200, 160, 130, 0.5), rgba(180, 140, 110, 0.5)),
+                      url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23b48c6e" width="1200" height="800"/><path fill="%23c8a082" opacity="0.3" d="M0 450 Q 350 350, 700 450 T 1200 450 L1200 800 L0 800 Z"/></svg>');
+}
+
+#result-screen[data-country="thailand"] {
+    background-image: linear-gradient(135deg, rgba(220, 190, 140, 0.5), rgba(200, 170, 120, 0.5)),
+                      url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23c8aa78" width="1200" height="800"/><path fill="%23dcbe8c" opacity="0.3" d="M0 420 Q 320 320, 640 420 T 1200 420 L1200 800 L0 800 Z"/></svg>');
+}
+
+#result-screen[data-country="vietnam"] {
+    background-image: linear-gradient(135deg, rgba(160, 180, 140, 0.5), rgba(140, 160, 120, 0.5)),
+                      url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%238ca078" width="1200" height="800"/><path fill="%23a0b48c" opacity="0.3" d="M0 480 Q 380 380, 760 480 T 1200 480 L1200 800 L0 800 Z"/></svg>');
+}
+
+.result-card {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.card-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 40px 40px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px 30px 0 0;
+    margin: 20px 20px 0;
+    animation: cardAppear 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 @keyframes cardAppear {
     0% {
-        transform: scale(0.8) rotateY(90deg);
+        transform: scale(0.9) translateY(30px);
         opacity: 0;
     }
     100% {
-        transform: scale(1) rotateY(0deg);
+        transform: scale(1) translateY(0);
         opacity: 1;
     }
 }
 
-.card-header {
-    background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
-    padding: 30px;
-    text-align: center;
-}
-
-.card-header h2 {
-    color: var(--text-light);
-    font-size: 2rem;
-    font-weight: 600;
-}
-
-.card-body {
-    padding: 40px;
-}
-
-.verse-section {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.verse-text {
-    font-size: 1.5rem;
-    line-height: 1.8;
+.country-name {
+    font-family: 'Caveat', cursive;
+    font-size: 4rem;
+    font-weight: 700;
     color: var(--text-dark);
-    font-style: italic;
-    margin-bottom: 15px;
-    font-weight: 400;
+    margin-bottom: 10px;
+    line-height: 1;
+    text-shadow: 1px 2px 4px rgba(255, 255, 255, 0.5);
+    letter-spacing: 2px;
 }
 
 .verse-reference {
-    font-size: 1.1rem;
-    color: var(--secondary-color);
-    font-weight: 600;
+    font-family: 'Caveat', cursive;
+    font-size: 1.8rem;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+    opacity: 0.9;
 }
 
-.divider {
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+.prayer-section {
     margin: 30px 0;
+    flex: 1;
+    display: flex;
+    align-items: center;
 }
 
-.country-section {
+.prayer-points-list {
+    list-style: none;
+    padding: 0;
     text-align: center;
 }
 
-.country-section h3 {
-    font-size: 1.5rem;
+.prayer-points-list li {
+    font-size: 1rem;
+    line-height: 1.9;
     color: var(--text-dark);
-    margin-bottom: 20px;
+    margin: 8px 0;
+    font-weight: 400;
 }
 
-.country-info {
-    margin-bottom: 20px;
+.prayer-points-list li:first-child {
+    color: var(--green-medium);
+    font-weight: 500;
 }
 
-.country-flag {
-    font-size: 4rem;
-    margin-bottom: 10px;
-    animation: bounceIn 0.8s;
-}
-
-@keyframes bounceIn {
-    0% { transform: scale(0); }
-    50% { transform: scale(1.2); }
-    100% { transform: scale(1); }
-}
-
-.country-name {
+.prayer-icon {
     font-size: 2rem;
-    font-weight: 700;
-    color: var(--primary-color);
-    margin-bottom: 15px;
+    margin: 20px 0 15px;
 }
 
-.country-description {
-    font-size: 1.1rem;
-    line-height: 1.6;
+.verse-text {
+    font-size: 0.95rem;
+    line-height: 1.7;
     color: var(--text-dark);
-    margin-bottom: 25px;
-    padding: 0 20px;
-}
-
-.prayer-points {
-    text-align: left;
-    background: #f8f9fa;
-    padding: 20px 30px;
-    border-radius: 10px;
-    margin-top: 20px;
-}
-
-.prayer-points h4 {
-    font-size: 1.2rem;
-    color: var(--secondary-color);
-    margin-bottom: 15px;
-}
-
-.prayer-points ul {
-    list-style: none;
-    padding: 0;
-}
-
-.prayer-points li {
-    padding: 8px 0;
-    padding-left: 25px;
-    position: relative;
-    line-height: 1.6;
-}
-
-.prayer-points li::before {
-    content: '🙏';
-    position: absolute;
-    left: 0;
+    max-width: 450px;
+    font-weight: 400;
+    margin-top: 10px;
 }
 
 .card-footer {
-    padding: 30px;
+    padding: 20px;
     text-align: center;
-    background: #f8f9fa;
+    margin: 0 20px 20px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0 0 30px 30px;
+    border-top: none;
 }
 
-.draw-again-button {
-    background: linear-gradient(135deg, var(--accent-color) 0%, #ee5a6f 100%);
-    border: none;
-    border-radius: 50px;
-    padding: 15px 40px;
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--text-light);
+.download-button {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 25px;
+    padding: 12px 35px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-dark);
     cursor: pointer;
-    box-shadow: 0 5px 20px rgba(255, 107, 107, 0.3);
     transition: all 0.3s ease;
+    font-family: 'Noto Sans KR', sans-serif;
+    width: 100%;
+    max-width: 300px;
 }
 
-.draw-again-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 30px rgba(255, 107, 107, 0.4);
+.download-button:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.35);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
-.draw-again-button:active {
-    transform: translateY(-1px);
+.download-button:active {
+    transform: translateY(0);
 }
 
-/* Footer */
+/* ============================================
+   FOOTER - SPRING MINISTRY Branding
+   ============================================ */
+
 .footer {
     text-align: center;
-    padding: 20px;
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 0.9rem;
+    padding: 25px 20px;
+    position: relative;
+    z-index: 1;
 }
 
-/* Animations */
+.brand-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.brand-circle {
+    width: 80px;
+    height: 80px;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 500;
+    letter-spacing: 1px;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.brand-text {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.75);
+    font-weight: 400;
+    letter-spacing: 2px;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
 @keyframes fadeInDown {
     from {
         opacity: 0;
@@ -388,52 +480,116 @@ body {
     }
 }
 
-/* Responsive Design */
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
 @media (max-width: 768px) {
     .title {
-        font-size: 2rem;
+        font-size: 4rem;
     }
 
     .subtitle {
-        font-size: 1rem;
+        font-size: 0.85rem;
+        max-width: 320px;
+    }
+
+    .cta-text p {
+        font-size: 0.85rem;
     }
 
     .draw-button {
-        font-size: 1.2rem;
-        padding: 15px 35px;
+        padding: 12px 35px;
+        font-size: 2rem;
     }
 
-    .card-body {
-        padding: 25px;
+    #result-screen {
+        height: 85vh;
     }
 
-    .verse-text {
-        font-size: 1.2rem;
-    }
-
-    .country-flag {
-        font-size: 3rem;
+    .card-content {
+        padding: 40px 25px 30px;
+        margin: 15px;
     }
 
     .country-name {
+        font-size: 3rem;
+    }
+
+    .verse-reference {
         font-size: 1.5rem;
     }
 
-    .country-description {
-        font-size: 1rem;
+    .prayer-points-list li {
+        font-size: 0.95rem;
     }
 
-    .prayer-points {
-        padding: 15px 20px;
+    .verse-text {
+        font-size: 0.9rem;
+    }
+
+    .brand-circle {
+        width: 70px;
+        height: 70px;
+        font-size: 0.7rem;
+    }
+
+    .brand-text {
+        font-size: 0.65rem;
     }
 }
 
 @media (max-width: 480px) {
     .title {
-        font-size: 1.5rem;
+        font-size: 3.5rem;
     }
 
-    .card-header h2 {
-        font-size: 1.5rem;
+    .subtitle {
+        font-size: 0.8rem;
+        max-width: 280px;
+    }
+
+    .cta-text {
+        margin: 30px auto 20px;
+    }
+
+    .cta-text p {
+        font-size: 0.8rem;
+    }
+
+    .draw-button {
+        padding: 10px 30px;
+        font-size: 1.8rem;
+    }
+
+    #result-screen {
+        height: 80vh;
+    }
+
+    .card-content {
+        padding: 30px 20px 25px;
+        margin: 10px;
+    }
+
+    .country-name {
+        font-size: 2.5rem;
+    }
+
+    .verse-reference {
+        font-size: 1.3rem;
+    }
+
+    .prayer-points-list li {
+        font-size: 0.9rem;
+        line-height: 1.7;
+    }
+
+    .verse-text {
+        font-size: 0.85rem;
+    }
+
+    .download-button {
+        font-size: 0.9rem;
+        padding: 10px 30px;
     }
 }
