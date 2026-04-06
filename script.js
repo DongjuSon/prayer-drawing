@@ -1,304 +1,216 @@
-// Prayer topics with Bible verses and missionary target countries
+// Prayer topics with countries and Korean text
 const prayerTopics = [
     {
-        verse: "Therefore go and make disciples of all nations, baptizing them in the name of the Father and of the Son and of the Holy Spirit.",
-        reference: "Matthew 28:19",
-        country: {
-            name: "Afghanistan",
-            flag: "🇦🇫",
-            description: "A nation in need of hope and peace. Less than 0.1% of the population are Christians, and they face severe persecution.",
-            prayerPoints: [
-                "For protection and courage for secret believers",
-                "For peace and stability in the region",
-                "For opportunities to share the Gospel safely",
-                "For refugees to encounter Christ"
-            ]
-        }
+        country: "JAPAN",
+        countryKo: "일본",
+        verse: "Seeds of the Kingdom",
+        reference: "만나는 영혼들의 마음이 복음의 씨앗을 받을 줄은 받이 되도록 기도합니다",
+        prayerPoints: [
+            "또 비유를 들어 이르시되",
+            "천국은 마치 사람이 자기 밭에 갖다",
+            "심은 겨자씨 한 알 같으니",
+            "이는 모든 씨보다 작은 것이로되",
+            "자란 후에는 풀보다 커서",
+            "나무가 되매 공중의 새들이 와서",
+            "그 가지에 깃들이느니라"
+        ]
     },
     {
-        verse: "Ask the Lord of the harvest, therefore, to send out workers into his harvest field.",
-        reference: "Matthew 9:38",
-        country: {
-            name: "North Korea",
-            flag: "🇰🇵",
-            description: "One of the most closed nations to the Gospel. Christians face extreme persecution, yet an underground church perseveres.",
-            prayerPoints: [
-                "For the underground church's strength and perseverance",
-                "For prisoners in labor camps who are believers",
-                "For a political opening that allows religious freedom",
-                "For missionaries at the borders to reach defectors"
-            ]
-        }
+        country: "KOREA",
+        countryKo: "한국",
+        verse: "Light to the Nations",
+        reference: "한국 교회가 세계의 빛이 되도록 기도합니다",
+        prayerPoints: [
+            "너희는 세상의 빛이라",
+            "산 위에 있는 동네가",
+            "숨겨지지 못할 것이요",
+            "사람이 등불을 켜서",
+            "말 아래에 두지 아니하고",
+            "등경 위에 두나니",
+            "이러므로 집 안 모든 사람에게 비치느니라"
+        ]
     },
     {
-        verse: "And this gospel of the kingdom will be preached in the whole world as a testimony to all nations.",
-        reference: "Matthew 24:14",
-        country: {
-            name: "Yemen",
-            flag: "🇾🇪",
-            description: "Amid civil war and humanitarian crisis, Yemen remains largely unreached with very few known Christians.",
-            prayerPoints: [
-                "For humanitarian aid workers to bring both physical and spiritual help",
-                "For peace and end to the civil conflict",
-                "For the small number of believers to find fellowship",
-                "For Gospel radio and media to reach people"
-            ]
-        }
+        country: "CHINA",
+        countryKo: "중국",
+        verse: "Harvest is Plentiful",
+        reference: "중국의 영혼들이 추수되도록 기도합니다",
+        prayerPoints: [
+            "이에 제자들에게 이르시되",
+            "추수할 것은 많되",
+            "일꾼이 적으니",
+            "그러므로 추수하는 주인에게",
+            "청하여 추수할 일꾼들을",
+            "보내 주소서 하라 하시니라"
+        ]
     },
     {
-        verse: "How beautiful on the mountains are the feet of those who bring good news.",
-        reference: "Isaiah 52:7",
-        country: {
-            name: "Somalia",
-            flag: "🇸🇴",
-            description: "One of the most dangerous places for Christians, with virtually no openly practicing Christians in the country.",
-            prayerPoints: [
-                "For secret believers to find strength and community",
-                "For safety and stability in the nation",
-                "For Somali refugees abroad to hear the Gospel",
-                "For boldness among missionaries to reach this nation"
-            ]
-        }
+        country: "THAILAND",
+        countryKo: "태국",
+        verse: "Go and Make Disciples",
+        reference: "태국에 제자들이 세워지도록 기도합니다",
+        prayerPoints: [
+            "그러므로 너희는 가서",
+            "모든 민족을 제자로 삼아",
+            "아버지와 아들과 성령의 이름으로",
+            "세례를 베풀고",
+            "내가 너희에게 분부한",
+            "모든 것을 가르쳐 지키게 하라"
+        ]
     },
     {
-        verse: "The harvest is plentiful but the workers are few.",
-        reference: "Luke 10:2",
-        country: {
-            name: "Iran",
-            flag: "🇮🇷",
-            description: "Despite intense persecution, the Iranian church is one of the fastest-growing in the world, particularly through house churches.",
-            prayerPoints: [
-                "For protection of house church leaders",
-                "For continued growth despite persecution",
-                "For prisoners of faith to be released",
-                "For a governmental change allowing religious freedom"
-            ]
-        }
+        country: "VIETNAM",
+        countryKo: "베트남",
+        verse: "The Good News",
+        reference: "베트남에 복음이 전파되도록 기도합니다",
+        prayerPoints: [
+            "내가 복음을 부끄러워하지 아니하노니",
+            "이 복음은 모든 믿는 자에게",
+            "구원을 주시는",
+            "하나님의 능력이 됨이라",
+            "먼저는 유대인에게요",
+            "그리고 헬라인에게로다"
+        ]
     },
     {
-        verse: "But you will receive power when the Holy Spirit comes on you; and you will be my witnesses.",
-        reference: "Acts 1:8",
-        country: {
-            name: "Saudi Arabia",
-            flag: "🇸🇦",
-            description: "Home to Islam's holiest sites, Christianity is forbidden, yet foreign workers create opportunities for witness.",
-            prayerPoints: [
-                "For foreign Christian workers to be bold witnesses",
-                "For Saudi seekers to find Jesus",
-                "For religious freedom to eventually come",
-                "For protection of secret believers"
-            ]
-        }
+        country: "MONGOLIA",
+        countryKo: "몽골",
+        verse: "Streams in the Desert",
+        reference: "몽골에 생명수가 흐르도록 기도합니다",
+        prayerPoints: [
+            "보라 내가 새 일을 행하리니",
+            "이제 나타낼 것이라",
+            "너희가 그것을 알지 못하겠느냐",
+            "반드시 내가 광야에 길을",
+            "사막에 강을 내리니",
+            "내가 택한 백성이 나를 찬송하게 하려 함이라"
+        ]
     },
     {
-        verse: "For I am not ashamed of the gospel, because it is the power of God that brings salvation.",
-        reference: "Romans 1:16",
-        country: {
-            name: "Libya",
-            flag: "🇱🇾",
-            description: "After years of civil war, Libya remains unstable with very few Christians and limited missionary access.",
-            prayerPoints: [
-                "For peace and reconstruction after conflict",
-                "For protection of Christian refugees and migrants",
-                "For opportunities for missionaries to enter and serve",
-                "For Libyan seekers to encounter the Gospel"
-            ]
-        }
+        country: "PHILIPPINES",
+        countryKo: "필리핀",
+        verse: "Joy in the Lord",
+        reference: "필리핀 교회에 기쁨이 넘치도록 기도합니다",
+        prayerPoints: [
+            "주 안에서 항상 기뻐하라",
+            "내가 다시 말하노니 기뻐하라",
+            "너희 관용을 모든 사람에게 알게 하라",
+            "주께서 가까우시니라",
+            "아무 것도 염려하지 말고",
+            "모든 일에 기도와 간구로 하라"
+        ]
     },
     {
-        verse: "I will make you fishers of men.",
-        reference: "Matthew 4:19",
-        country: {
-            name: "Algeria",
-            flag: "🇩🇿",
-            description: "The church in Algeria is growing despite government restrictions and pressure on converts from Islam.",
-            prayerPoints: [
-                "For converts facing family and social persecution",
-                "For church buildings that have been closed to reopen",
-                "For wisdom for church leaders",
-                "For more workers to disciple new believers"
-            ]
-        }
+        country: "INDIA",
+        countryKo: "인도",
+        verse: "Many Nations",
+        reference: "인도의 수많은 민족이 주님을 알도록 기도합니다",
+        prayerPoints: [
+            "이 천국 복음이",
+            "모든 민족에게 증언되기 위하여",
+            "온 세상에 전파되리니",
+            "그제야 끝이 오리라",
+            "주의 이름을 부르는 자마다",
+            "구원을 받으리라"
+        ]
     },
     {
-        verse: "Do not be afraid; keep on speaking, do not be silent.",
-        reference: "Acts 18:9",
-        country: {
-            name: "Maldives",
-            flag: "🇲🇻",
-            description: "With 100% Muslim population by law, there are virtually no known Christian citizens, and evangelism is illegal.",
-            prayerPoints: [
-                "For foreign workers to share their faith wisely",
-                "For Maldivians studying abroad to encounter Jesus",
-                "For freedom of religion to be established",
-                "For the first Maldivian churches to be planted"
-            ]
-        }
+        country: "MYANMAR",
+        countryKo: "미얀마",
+        verse: "Peace and Hope",
+        reference: "미얀마에 평화와 소망이 임하도록 기도합니다",
+        prayerPoints: [
+            "평강의 하나님이",
+            "친히 너희를 온전히 거룩하게 하시고",
+            "너희의 온 영과 혼과 몸이",
+            "우리 주 예수 그리스도께서",
+            "강림하실 때에",
+            "흠 없게 보전되기를 원하노라"
+        ]
     },
     {
-        verse: "Go into all the world and preach the gospel to all creation.",
-        reference: "Mark 16:15",
-        country: {
-            name: "Turkmenistan",
-            flag: "🇹🇲",
-            description: "One of the most isolated and repressive countries, with tight government control over all religious activities.",
-            prayerPoints: [
-                "For the small underground church to grow",
-                "For political change that allows religious freedom",
-                "For Christian resources to reach believers",
-                "For boldness among secret believers"
-            ]
-        }
+        country: "CAMBODIA",
+        countryKo: "캄보디아",
+        verse: "Healing and Restoration",
+        reference: "캄보디아의 치유와 회복을 위해 기도합니다",
+        prayerPoints: [
+            "여호와께서 상심한 자를 고치시며",
+            "그들의 상처를 싸매시는도다",
+            "그는 마음이 상한 자를 고치시며",
+            "그들의 아픔을 싸매시는도다",
+            "주께서 온유한 자를 붙드시고",
+            "악인을 땅에 엎으시는도다"
+        ]
     },
     {
-        verse: "Pray also for me, that whenever I speak, words may be given me so that I will fearlessly make known the mystery of the gospel.",
-        reference: "Ephesians 6:19",
-        country: {
-            name: "Mauritania",
-            flag: "🇲🇷",
-            description: "An Islamic republic where Christianity is barely present and evangelism is prohibited.",
-            prayerPoints: [
-                "For the handful of believers to find courage",
-                "For safe places for believers to meet",
-                "For missionaries working at the borders",
-                "For breakthrough in this resistant nation"
-            ]
-        }
+        country: "LAOS",
+        countryKo: "라오스",
+        verse: "Open Doors",
+        reference: "라오스에 복음의 문이 열리도록 기도합니다",
+        prayerPoints: [
+            "볼지어다 내가 네 앞에",
+            "열린 문을 두었으되",
+            "능히 닫을 사람이 없으리라",
+            "내가 네 행위를 아노니",
+            "네가 적은 능력을 가지고도",
+            "내 말을 지키며 내 이름을 배반하지 아니하였도다"
+        ]
     },
     {
-        verse: "All the ends of the earth will remember and turn to the Lord.",
-        reference: "Psalm 22:27",
-        country: {
-            name: "Bhutan",
-            flag: "🇧🇹",
-            description: "This Buddhist kingdom has very few Christians, and evangelism is officially illegal, though the church is slowly growing.",
-            prayerPoints: [
-                "For the small Christian community to grow in faith",
-                "For wisdom in sharing faith in this context",
-                "For government officials to see Christianity positively",
-                "For more missionaries to have access"
-            ]
-        }
+        country: "TAIWAN",
+        countryKo: "대만",
+        verse: "Strong Foundation",
+        reference: "대만 교회의 견고한 기초를 위해 기도합니다",
+        prayerPoints: [
+            "그러므로 누구든지",
+            "나의 이 말을 듣고 행하는 자는",
+            "그 집을 반석 위에 지은",
+            "지혜로운 사람 같으리니",
+            "비가 내리고 창수가 나고",
+            "바람이 불어도 무너지지 아니하느니라"
+        ]
     },
     {
-        verse: "Night and day we pray most earnestly that we may see you again.",
-        reference: "1 Thessalonians 3:10",
-        country: {
-            name: "Laos",
-            flag: "🇱🇦",
-            description: "Though officially atheist, the Buddhist-majority nation restricts Christianity and believers face harassment.",
-            prayerPoints: [
-                "For persecuted believers in rural areas",
-                "For church buildings that have been closed",
-                "For religious freedom to expand",
-                "For training of local pastors and leaders"
-            ]
-        }
+        country: "NEPAL",
+        countryKo: "네팔",
+        verse: "Mountain Faith",
+        reference: "네팔의 산들에서 찬양이 울려퍼지도록 기도합니다",
+        prayerPoints: [
+            "너희가 만일 믿음이 있고",
+            "의심하지 아니하면",
+            "이 산더러 들려",
+            "바다에 던져지라 하여도",
+            "그대로 되리라",
+            "기도할 때에 무엇이든지 믿고 구하면 다 받으리라"
+        ]
     },
     {
-        verse: "The Lord is not slow in keeping his promise... not wanting anyone to perish.",
-        reference: "2 Peter 3:9",
-        country: {
-            name: "Morocco",
-            flag: "🇲🇦",
-            description: "While relatively moderate, Morocco officially forbids evangelism and most Christians are expatriates.",
-            prayerPoints: [
-                "For the growing number of Moroccan believers",
-                "For families who have disowned converted loved ones",
-                "For more opportunities to share the Gospel",
-                "For legal recognition of Christianity"
-            ]
-        }
+        country: "MALAYSIA",
+        countryKo: "말레이시아",
+        verse: "Unity in Diversity",
+        reference: "말레이시아의 다양성 속 연합을 위해 기도합니다",
+        prayerPoints: [
+            "몸은 하나인데 많은 지체가 있고",
+            "몸의 지체가 많으나",
+            "한 몸임과 같이",
+            "그리스도도 그러하니라",
+            "우리가 유대인이나 헬라인이나",
+            "다 한 성령으로 세례를 받아 한 몸이 되었느니라"
+        ]
     },
     {
-        verse: "The Spirit of the Lord is on me, because he has anointed me to proclaim good news to the poor.",
-        reference: "Luke 4:18",
-        country: {
-            name: "Comoros",
-            flag: "🇰🇲",
-            description: "One of the world's least-evangelized nations, with Islam as the state religion and almost no Christians.",
-            prayerPoints: [
-                "For the first Comorian churches to be established",
-                "For believers to be protected and encouraged",
-                "For creative access strategies for missionaries",
-                "For Gospel resources in the Comorian language"
-            ]
-        }
-    },
-    {
-        verse: "I have other sheep that are not of this sheep pen. I must bring them also.",
-        reference: "John 10:16",
-        country: {
-            name: "Mali",
-            flag: "🇲🇱",
-            description: "Facing Islamist insurgency in the north, Christians in Mali face increasing pressure and violence.",
-            prayerPoints: [
-                "For protection of Christian communities from extremists",
-                "For peace and stability",
-                "For believers to remain strong amid threats",
-                "For continued church growth despite challenges"
-            ]
-        }
-    },
-    {
-        verse: "Devote yourselves to prayer, being watchful and thankful.",
-        reference: "Colossians 4:2",
-        country: {
-            name: "Uzbekistan",
-            flag: "🇺🇿",
-            description: "Government surveillance and control make it difficult for Christians, though the church is slowly growing.",
-            prayerPoints: [
-                "For registered churches to operate freely",
-                "For house churches meeting in secret",
-                "For reduced government harassment",
-                "For more Christian literature and resources"
-            ]
-        }
-    },
-    {
-        verse: "May the Lord make your love increase and overflow for each other and for everyone else.",
-        reference: "1 Thessalonians 3:12",
-        country: {
-            name: "Brunei",
-            flag: "🇧🇳",
-            description: "Sharia law strictly limits Christian practice, with severe penalties for evangelism and conversion from Islam.",
-            prayerPoints: [
-                "For Christian expatriate workers",
-                "For local believers to worship safely",
-                "For religious freedom laws to change",
-                "For opportunities for witness through service"
-            ]
-        }
-    },
-    {
-        verse: "Pray continually, give thanks in all circumstances.",
-        reference: "1 Thessalonians 5:17-18",
-        country: {
-            name: "Pakistan",
-            flag: "🇵🇰",
-            description: "Christians face severe persecution, including blasphemy laws used against them, yet the church continues to grow.",
-            prayerPoints: [
-                "For justice for those falsely accused under blasphemy laws",
-                "For protection from extremist attacks on churches",
-                "For courage for believers amid persecution",
-                "For church leaders to have wisdom and boldness"
-            ]
-        }
-    },
-    {
-        verse: "May the God of hope fill you with all joy and peace as you trust in him.",
-        reference: "Romans 15:13",
-        country: {
-            name: "Eritrea",
-            flag: "🇪🇷",
-            description: "Only four Christian denominations are recognized; others face imprisonment and harsh treatment.",
-            prayerPoints: [
-                "For thousands of imprisoned believers to be released",
-                "For courage for believers in military service",
-                "For religious freedom to be restored",
-                "For comfort for families of imprisoned Christians"
-            ]
-        }
+        country: "SINGAPORE",
+        countryKo: "싱가포르",
+        verse: "City on a Hill",
+        reference: "싱가포르가 아시아의 등대가 되도록 기도합니다",
+        prayerPoints: [
+            "너희는 세상의 빛이라",
+            "산 위에 있는 동네가",
+            "숨겨지지 못할 것이요",
+            "이같이 너희 빛이",
+            "사람 앞에 비치게 하여",
+            "그들로 너희 착한 행실을 보고 하늘에 계신 아버지께 영광을 돌리게 하라"
+        ]
     }
 ];
 
@@ -307,21 +219,38 @@ const drawScreen = document.getElementById('draw-screen');
 const loadingScreen = document.getElementById('loading-screen');
 const resultScreen = document.getElementById('result-screen');
 const drawBtn = document.getElementById('draw-btn');
-const drawAgainBtn = document.getElementById('draw-again-btn');
-const verseText = document.getElementById('verse-text');
-const verseReference = document.getElementById('verse-reference');
-const countryFlag = document.getElementById('country-flag');
+const downloadBtn = document.getElementById('download-btn');
 const countryName = document.getElementById('country-name');
-const countryDescription = document.getElementById('country-description');
+const verseReference = document.getElementById('verse-reference');
+const verseText = document.getElementById('verse-text');
 const prayerPointsList = document.getElementById('prayer-points-list');
 
-// Current drawn topic
+// Configuration constants
+const CONFIG = {
+    DRAW_ANIMATION_DELAY: 2000,
+    SCREEN_TRANSITION_DELAY: 300
+};
+
+// Current state
 let currentTopic = null;
+let lastDrawnIndex = -1;
 
 // Initialize
 function init() {
+    // Event listeners
     drawBtn.addEventListener('click', handleDraw);
-    drawAgainBtn.addEventListener('click', handleDrawAgain);
+    if (downloadBtn) {
+        downloadBtn.addEventListener('click', downloadImage);
+    }
+
+    // Keyboard shortcuts
+    document.addEventListener('keydown', handleKeyPress);
+
+    // Validate data
+    if (!prayerTopics || prayerTopics.length === 0) {
+        console.error('No prayer topics available');
+        drawBtn.disabled = true;
+    }
 }
 
 // Handle draw button click
@@ -329,41 +258,41 @@ function handleDraw() {
     // Switch to loading screen
     switchScreen(drawScreen, loadingScreen);
 
-    // Simulate drawing animation (2 seconds)
+    // Simulate drawing animation
     setTimeout(() => {
         drawRandomTopic();
         displayResult();
         switchScreen(loadingScreen, resultScreen);
-    }, 2000);
+    }, CONFIG.DRAW_ANIMATION_DELAY);
 }
 
-// Handle draw again button click
+// Handle draw again - return to home
 function handleDrawAgain() {
     switchScreen(resultScreen, drawScreen);
-}
-
-// Draw a random prayer topic
-function drawRandomTopic() {
-    const randomIndex = Math.floor(Math.random() * prayerTopics.length);
-    currentTopic = prayerTopics[randomIndex];
+    // Remove country-specific background
+    resultScreen.removeAttribute('data-country');
 }
 
 // Display the result
 function displayResult() {
     if (!currentTopic) return;
 
-    // Display verse
-    verseText.textContent = `"${currentTopic.verse}"`;
-    verseReference.textContent = `— ${currentTopic.reference}`;
+    // Set country-specific background
+    const countryId = currentTopic.country.toLowerCase().replace(/\s+/g, '');
+    resultScreen.setAttribute('data-country', countryId);
 
-    // Display country info
-    countryFlag.textContent = currentTopic.country.flag;
-    countryName.textContent = currentTopic.country.name;
-    countryDescription.textContent = currentTopic.country.description;
+    // Display country name
+    countryName.textContent = currentTopic.country;
+
+    // Display verse reference (subtitle)
+    verseReference.textContent = currentTopic.verse;
+
+    // Display main verse text at bottom
+    verseText.textContent = currentTopic.reference;
 
     // Display prayer points
     prayerPointsList.innerHTML = '';
-    currentTopic.country.prayerPoints.forEach(point => {
+    currentTopic.prayerPoints.forEach(point => {
         const li = document.createElement('li');
         li.textContent = point;
         prayerPointsList.appendChild(li);
@@ -375,13 +304,16 @@ function switchScreen(fromScreen, toScreen) {
     fromScreen.classList.remove('active');
     setTimeout(() => {
         toScreen.classList.add('active');
-    }, 300);
+    }, CONFIG.SCREEN_TRANSITION_DELAY);
 }
 
-// Prevent duplicate draws (ensure randomness)
-let lastDrawnIndex = -1;
-
+// Draw a random prayer topic (prevents consecutive duplicates)
 function drawRandomTopic() {
+    if (!prayerTopics || prayerTopics.length === 0) {
+        console.error('No prayer topics available');
+        return;
+    }
+
     let randomIndex;
     do {
         randomIndex = Math.floor(Math.random() * prayerTopics.length);
@@ -389,6 +321,79 @@ function drawRandomTopic() {
 
     lastDrawnIndex = randomIndex;
     currentTopic = prayerTopics[randomIndex];
+}
+
+// Keyboard shortcuts handler
+function handleKeyPress(e) {
+    // Ignore if user is typing in an input
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
+        return;
+    }
+
+    if (drawScreen.classList.contains('active')) {
+        // SPACE or ENTER to draw
+        if (e.code === 'Space' || e.code === 'Enter') {
+            e.preventDefault();
+            handleDraw();
+        }
+    } else if (resultScreen.classList.contains('active')) {
+        // SPACE or ENTER to draw again
+        if (e.code === 'Space' || e.code === 'Enter') {
+            e.preventDefault();
+            handleDrawAgain();
+        }
+        // ESC to go back
+        if (e.code === 'Escape') {
+            e.preventDefault();
+            handleDrawAgain();
+        }
+    }
+}
+
+// Download image functionality
+async function downloadImage() {
+    if (!currentTopic) return;
+
+    try {
+        // Use html2canvas library
+        const script = document.createElement('script');
+        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
+        script.onload = async () => {
+            const resultCard = document.querySelector('.result-card');
+
+            // Temporarily hide the download button
+            if (downloadBtn) {
+                downloadBtn.style.display = 'none';
+            }
+
+            const canvas = await html2canvas(resultCard, {
+                backgroundColor: null,
+                scale: 2,
+                logging: false,
+                useCORS: true
+            });
+
+            // Show the button again
+            if (downloadBtn) {
+                downloadBtn.style.display = '';
+            }
+
+            // Convert to blob and download
+            canvas.toBlob((blob) => {
+                const url = URL.createObjectURL(blob);
+                const link = document.createElement('a');
+                const countryName = currentTopic.country.toLowerCase();
+                link.download = `his-plan-${countryName}-${Date.now()}.png`;
+                link.href = url;
+                link.click();
+                URL.revokeObjectURL(url);
+            });
+        };
+        document.head.appendChild(script);
+    } catch (error) {
+        console.error('Failed to download image:', error);
+        alert('이미지 저장에 실패했습니다. 다시 시도해주세요.');
+    }
 }
 
 // Initialize the app
