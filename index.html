@@ -1,29 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prayer Topic Drawing - Missionary Prayer Guide</title>
+    <meta name="description" content="His Plan - 하나님의 뜻을 따라 세계를 위해 기도하세요">
+    <meta name="theme-color" content="#9dc88d">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="His Plan - 기도 제비뽑기">
+    <meta property="og:description" content="하나님의 뜻을 따라 세계를 위해 기도하세요">
+    <meta property="og:type" content="website">
+
+    <title>His Plan - 기도 제비뽑기</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <!-- Initial State: Draw Button -->
-        <div id="draw-screen" class="screen active">
+        <div id="draw-screen" class="screen active" role="main" aria-live="polite">
             <div class="content">
-                <h1 class="title">Prayer Topic Drawing</h1>
-                <p class="subtitle">Draw a prayer topic and discover a missionary country to pray for</p>
-                <button id="draw-btn" class="draw-button">
-                    <span class="btn-text">Draw Prayer Topic</span>
-                    <span class="btn-icon">🙏</span>
+                <h1 class="title">His<br>Plan</h1>
+                <div class="star-divider">✦</div>
+                <p class="subtitle">하나님이 주의 생각이 내게 어찌 그리 보배로우신지요<br>
+                그 수가 어찌 그리 많은지요<br>
+                내가 세려고 할지라도 그 수가 모래보다 많도소이다<br>
+                내가 깰 때에도 여전히 주와 함께 있나이다</p>
+                <div class="cta-text">
+                    <p>아래버튼을 눌러<br>
+                    내게 주신 기도제목을 가지고 함께 기도해주세요!</p>
+                </div>
+                <button id="draw-btn" class="draw-button" aria-label="기도 제비뽑기">
+                    <span class="btn-icon" aria-hidden="true">🙏</span>
                 </button>
             </div>
         </div>
 
         <!-- Loading Animation -->
-        <div id="loading-screen" class="screen">
+        <div id="loading-screen" class="screen" role="status" aria-live="polite" aria-label="Drawing animation in progress">
             <div class="loading-animation">
-                <div class="card-shuffle">
+                <div class="card-shuffle" aria-hidden="true">
                     <div class="card"></div>
                     <div class="card"></div>
                     <div class="card"></div>
@@ -33,39 +54,33 @@
         </div>
 
         <!-- Result Screen -->
-        <div id="result-screen" class="screen">
+        <div id="result-screen" class="screen" role="main" aria-live="polite">
             <div class="result-card">
-                <div class="card-header">
-                    <h2>Your Prayer Topic</h2>
-                </div>
-                <div class="card-body">
-                    <div class="verse-section">
-                        <p id="verse-text" class="verse-text"></p>
-                        <p id="verse-reference" class="verse-reference"></p>
+                <div class="card-content">
+                    <h2 id="country-name" class="country-name"></h2>
+                    <p id="verse-reference" class="verse-reference" role="text"></p>
+                    <div class="star-divider">✦</div>
+                    <div class="prayer-section">
+                        <ul id="prayer-points-list" class="prayer-points-list"></ul>
                     </div>
-                    <div class="divider"></div>
-                    <div class="country-section">
-                        <h3>Missionary Target Country</h3>
-                        <div class="country-info">
-                            <p id="country-flag" class="country-flag"></p>
-                            <p id="country-name" class="country-name"></p>
-                        </div>
-                        <p id="country-description" class="country-description"></p>
-                        <div class="prayer-points">
-                            <h4>Prayer Points:</h4>
-                            <ul id="prayer-points-list"></ul>
-                        </div>
-                    </div>
+                    <div class="prayer-icon">🙏</div>
+                    <p id="verse-text" class="verse-text" role="text"></p>
                 </div>
                 <div class="card-footer">
-                    <button id="draw-again-btn" class="draw-again-button">Draw Again</button>
+                    <button id="download-btn" class="download-button" aria-label="이미지 저장하기">
+                        <span aria-hidden="true">⬇</span> 이미지 저장하기
+                    </button>
                 </div>
             </div>
         </div>
+
     </div>
 
     <footer class="footer">
-        <p>May your prayers bring hope and light to the nations 🌍</p>
+        <div class="brand-logo">
+            <div class="brand-circle">SPRING</div>
+            <div class="brand-text">MINISTRY</div>
+        </div>
     </footer>
 
     <script src="script.js"></script>
