@@ -24,20 +24,21 @@
     <div class="container">
         <!-- Initial State: Draw Button -->
         <div id="draw-screen" class="screen active" role="main" aria-live="polite">
-            <div class="content">
-                <h1 class="title">His<br>Plan</h1>
-                <div class="star-divider">✦</div>
-                <p class="subtitle">하나님이 주의 생각이 내게 어찌 그리 보배로우신지요<br>
-                그 수가 어찌 그리 많은지요<br>
-                내가 세려고 할지라도 그 수가 모래보다 많도소이다<br>
-                내가 깰 때에도 여전히 주와 함께 있나이다</p>
-                <div class="cta-text">
-                    <p>아래버튼을 눌러<br>
-                    내게 주신 기도제목을 가지고 함께 기도해주세요!</p>
+            <div class="draw-content">
+
+                <!-- Title Image: His Plan + verse text -->
+                <div class="title-area">
+                    <img src="homepage_title.png" class="title-image" alt="His Plan - 하나님이여 주의 생각이 내게 어찌 그리 보배로우신지요">
                 </div>
-                <button id="draw-btn" class="draw-button" aria-label="기도 제비뽑기">
-                    <span class="btn-icon" aria-hidden="true">🙏</span>
-                </button>
+
+                <!-- Action Area: CTA text + draw button -->
+                <div class="action-area">
+                    <img src="homepage_bottom.png" class="bottom-text-image" alt="아래버튼을 눌러 내게 주신 기도제목을 가지고 함께 기도해주세요!">
+                    <button id="draw-btn" class="draw-button" aria-label="기도 제비뽑기">
+                        <span class="btn-icon" aria-hidden="true">🙏</span>
+                    </button>
+                </div>
+
             </div>
         </div>
 
@@ -77,10 +78,7 @@
     </div>
 
     <footer class="footer">
-        <div class="brand-logo">
-            <div class="brand-circle">SPRING</div>
-            <div class="brand-text">MINISTRY</div>
-        </div>
+        <img src="homepage_logo.png" class="brand-logo-img" alt="Spring Ministry">
     </footer>
 
     <script src="script.js"></script>
