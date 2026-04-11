@@ -1,400 +1,595 @@
-// Prayer topics with countries and Korean text
-const prayerTopics = [
-    {
-        country: "JAPAN",
-        countryKo: "일본",
-        verse: "Seeds of the Kingdom",
-        reference: "만나는 영혼들의 마음이 복음의 씨앗을 받을 줄은 받이 되도록 기도합니다",
-        prayerPoints: [
-            "또 비유를 들어 이르시되",
-            "천국은 마치 사람이 자기 밭에 갖다",
-            "심은 겨자씨 한 알 같으니",
-            "이는 모든 씨보다 작은 것이로되",
-            "자란 후에는 풀보다 커서",
-            "나무가 되매 공중의 새들이 와서",
-            "그 가지에 깃들이느니라"
-        ]
-    },
-    {
-        country: "KOREA",
-        countryKo: "한국",
-        verse: "Light to the Nations",
-        reference: "한국 교회가 세계의 빛이 되도록 기도합니다",
-        prayerPoints: [
-            "너희는 세상의 빛이라",
-            "산 위에 있는 동네가",
-            "숨겨지지 못할 것이요",
-            "사람이 등불을 켜서",
-            "말 아래에 두지 아니하고",
-            "등경 위에 두나니",
-            "이러므로 집 안 모든 사람에게 비치느니라"
-        ]
-    },
-    {
-        country: "CHINA",
-        countryKo: "중국",
-        verse: "Harvest is Plentiful",
-        reference: "중국의 영혼들이 추수되도록 기도합니다",
-        prayerPoints: [
-            "이에 제자들에게 이르시되",
-            "추수할 것은 많되",
-            "일꾼이 적으니",
-            "그러므로 추수하는 주인에게",
-            "청하여 추수할 일꾼들을",
-            "보내 주소서 하라 하시니라"
-        ]
-    },
-    {
-        country: "THAILAND",
-        countryKo: "태국",
-        verse: "Go and Make Disciples",
-        reference: "태국에 제자들이 세워지도록 기도합니다",
-        prayerPoints: [
-            "그러므로 너희는 가서",
-            "모든 민족을 제자로 삼아",
-            "아버지와 아들과 성령의 이름으로",
-            "세례를 베풀고",
-            "내가 너희에게 분부한",
-            "모든 것을 가르쳐 지키게 하라"
-        ]
-    },
-    {
-        country: "VIETNAM",
-        countryKo: "베트남",
-        verse: "The Good News",
-        reference: "베트남에 복음이 전파되도록 기도합니다",
-        prayerPoints: [
-            "내가 복음을 부끄러워하지 아니하노니",
-            "이 복음은 모든 믿는 자에게",
-            "구원을 주시는",
-            "하나님의 능력이 됨이라",
-            "먼저는 유대인에게요",
-            "그리고 헬라인에게로다"
-        ]
-    },
-    {
-        country: "MONGOLIA",
-        countryKo: "몽골",
-        verse: "Streams in the Desert",
-        reference: "몽골에 생명수가 흐르도록 기도합니다",
-        prayerPoints: [
-            "보라 내가 새 일을 행하리니",
-            "이제 나타낼 것이라",
-            "너희가 그것을 알지 못하겠느냐",
-            "반드시 내가 광야에 길을",
-            "사막에 강을 내리니",
-            "내가 택한 백성이 나를 찬송하게 하려 함이라"
-        ]
-    },
-    {
-        country: "PHILIPPINES",
-        countryKo: "필리핀",
-        verse: "Joy in the Lord",
-        reference: "필리핀 교회에 기쁨이 넘치도록 기도합니다",
-        prayerPoints: [
-            "주 안에서 항상 기뻐하라",
-            "내가 다시 말하노니 기뻐하라",
-            "너희 관용을 모든 사람에게 알게 하라",
-            "주께서 가까우시니라",
-            "아무 것도 염려하지 말고",
-            "모든 일에 기도와 간구로 하라"
-        ]
-    },
-    {
-        country: "INDIA",
-        countryKo: "인도",
-        verse: "Many Nations",
-        reference: "인도의 수많은 민족이 주님을 알도록 기도합니다",
-        prayerPoints: [
-            "이 천국 복음이",
-            "모든 민족에게 증언되기 위하여",
-            "온 세상에 전파되리니",
-            "그제야 끝이 오리라",
-            "주의 이름을 부르는 자마다",
-            "구원을 받으리라"
-        ]
-    },
-    {
-        country: "MYANMAR",
-        countryKo: "미얀마",
-        verse: "Peace and Hope",
-        reference: "미얀마에 평화와 소망이 임하도록 기도합니다",
-        prayerPoints: [
-            "평강의 하나님이",
-            "친히 너희를 온전히 거룩하게 하시고",
-            "너희의 온 영과 혼과 몸이",
-            "우리 주 예수 그리스도께서",
-            "강림하실 때에",
-            "흠 없게 보전되기를 원하노라"
-        ]
-    },
-    {
-        country: "CAMBODIA",
-        countryKo: "캄보디아",
-        verse: "Healing and Restoration",
-        reference: "캄보디아의 치유와 회복을 위해 기도합니다",
-        prayerPoints: [
-            "여호와께서 상심한 자를 고치시며",
-            "그들의 상처를 싸매시는도다",
-            "그는 마음이 상한 자를 고치시며",
-            "그들의 아픔을 싸매시는도다",
-            "주께서 온유한 자를 붙드시고",
-            "악인을 땅에 엎으시는도다"
-        ]
-    },
-    {
-        country: "LAOS",
-        countryKo: "라오스",
-        verse: "Open Doors",
-        reference: "라오스에 복음의 문이 열리도록 기도합니다",
-        prayerPoints: [
-            "볼지어다 내가 네 앞에",
-            "열린 문을 두었으되",
-            "능히 닫을 사람이 없으리라",
-            "내가 네 행위를 아노니",
-            "네가 적은 능력을 가지고도",
-            "내 말을 지키며 내 이름을 배반하지 아니하였도다"
-        ]
-    },
-    {
-        country: "TAIWAN",
-        countryKo: "대만",
-        verse: "Strong Foundation",
-        reference: "대만 교회의 견고한 기초를 위해 기도합니다",
-        prayerPoints: [
-            "그러므로 누구든지",
-            "나의 이 말을 듣고 행하는 자는",
-            "그 집을 반석 위에 지은",
-            "지혜로운 사람 같으리니",
-            "비가 내리고 창수가 나고",
-            "바람이 불어도 무너지지 아니하느니라"
-        ]
-    },
-    {
-        country: "NEPAL",
-        countryKo: "네팔",
-        verse: "Mountain Faith",
-        reference: "네팔의 산들에서 찬양이 울려퍼지도록 기도합니다",
-        prayerPoints: [
-            "너희가 만일 믿음이 있고",
-            "의심하지 아니하면",
-            "이 산더러 들려",
-            "바다에 던져지라 하여도",
-            "그대로 되리라",
-            "기도할 때에 무엇이든지 믿고 구하면 다 받으리라"
-        ]
-    },
-    {
-        country: "MALAYSIA",
-        countryKo: "말레이시아",
-        verse: "Unity in Diversity",
-        reference: "말레이시아의 다양성 속 연합을 위해 기도합니다",
-        prayerPoints: [
-            "몸은 하나인데 많은 지체가 있고",
-            "몸의 지체가 많으나",
-            "한 몸임과 같이",
-            "그리스도도 그러하니라",
-            "우리가 유대인이나 헬라인이나",
-            "다 한 성령으로 세례를 받아 한 몸이 되었느니라"
-        ]
-    },
-    {
-        country: "SINGAPORE",
-        countryKo: "싱가포르",
-        verse: "City on a Hill",
-        reference: "싱가포르가 아시아의 등대가 되도록 기도합니다",
-        prayerPoints: [
-            "너희는 세상의 빛이라",
-            "산 위에 있는 동네가",
-            "숨겨지지 못할 것이요",
-            "이같이 너희 빛이",
-            "사람 앞에 비치게 하여",
-            "그들로 너희 착한 행실을 보고 하늘에 계신 아버지께 영광을 돌리게 하라"
-        ]
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --green-light: #c8d8b4;
+    --green-soft: #9dc88d;
+    --green-medium: #7ab55c;
+    --blue-soft: #a8c5dd;
+    --blue-medium: #7ba7c7;
+    --text-dark: #5a6650;
+    --text-light: #ffffff;
+    --text-overlay: rgba(255, 255, 255, 0.95);
+    --glass-bg: rgba(255, 255, 255, 0.15);
+    --glass-border: rgba(255, 255, 255, 0.3);
+}
+
+body {
+    font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: var(--text-dark);
+    overflow-x: hidden;
+
+    /* Background: watercolor image */
+    background-image: url('homepage_background.png');
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+}
+
+/* Very subtle overlay to preserve watercolor depth */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.08);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* ============================================
+   SCREEN MANAGEMENT
+   ============================================ */
+
+.screen {
+    position: absolute;
+    width: 100%;
+    max-width: 500px;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.95);
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.screen.active {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+/* ============================================
+   DRAW SCREEN — Image-based layout
+   ============================================ */
+
+#draw-screen {
+    max-width: 500px;
+}
+
+#draw-screen.active {
+    display: flex;
+    align-items: stretch;
+}
+
+.draw-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 88vh;
+    padding: 0 20px 28px;
+}
+
+/* Title area: takes up most of the vertical space,
+   aligns title image to the bottom so its lower edge
+   sits slightly above vertical center */
+.title-area {
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 8vh;
+    width: 100%;
+}
+
+.title-image {
+    width: 82%;
+    max-width: 360px;
+    object-fit: contain;
+    animation: fadeInDown 1s ease-out;
+    /* PNG with transparent background — white text on transparent */
+    filter: drop-shadow(0px 2px 8px rgba(255, 255, 255, 0.2));
+}
+
+/* Action area: CTA text + draw button, pinned to lower section */
+.action-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    width: 100%;
+}
+
+.bottom-text-image {
+    width: 72%;
+    max-width: 310px;
+    object-fit: contain;
+    opacity: 0.85;
+    animation: fadeInUp 0.8s ease-out 0.2s backwards;
+}
+
+/* Draw button — wider pill, more transparent */
+.draw-button {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 50px;
+    padding: 16px 0;
+    width: 80%;
+    max-width: 340px;
+    font-size: 2.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeInUp 0.8s ease-out 0.4s backwards;
+    box-shadow:
+        0 4px 24px rgba(0, 0, 0, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.draw-button:hover {
+    transform: translateY(-3px) scale(1.02);
+    background: rgba(255, 255, 255, 0.20);
+    box-shadow:
+        0 10px 36px rgba(0, 0, 0, 0.10),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.draw-button:active {
+    transform: translateY(-1px) scale(1.01);
+}
+
+.btn-icon {
+    font-size: 2.2rem;
+    line-height: 1;
+}
+
+/* ============================================
+   LOADING ANIMATION
+   ============================================ */
+
+#loading-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading-animation {
+    text-align: center;
+}
+
+.card-shuffle {
+    position: relative;
+    width: 200px;
+    height: 280px;
+    margin: 0 auto 2rem;
+}
+
+.card {
+    position: absolute;
+    width: 140px;
+    height: 200px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 240, 240, 0.9) 100%);
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    backdrop-filter: blur(10px);
+}
+
+.card:nth-child(1) { animation: shuffle1 1.5s infinite; }
+.card:nth-child(2) { animation: shuffle2 1.5s infinite; }
+.card:nth-child(3) { animation: shuffle3 1.5s infinite; }
+
+@keyframes shuffle1 {
+    0%, 100% { transform: translate(-50%, -50%) rotate(0deg); }
+    33%       { transform: translate(-80%, -50%) rotate(-10deg); }
+    66%       { transform: translate(-20%, -50%) rotate(10deg); }
+}
+
+@keyframes shuffle2 {
+    0%, 100% { transform: translate(-50%, -50%) rotate(0deg); }
+    33%       { transform: translate(-20%, -50%) rotate(10deg); }
+    66%       { transform: translate(-80%, -50%) rotate(-10deg); }
+}
+
+@keyframes shuffle3 {
+    0%, 100% { transform: translate(-50%, -50%) rotate(0deg) scale(0.95); }
+    50%       { transform: translate(-50%, -50%) rotate(0deg) scale(1.05); }
+}
+
+.loading-text {
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    font-weight: 400;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.6; }
+    50%       { opacity: 1; }
+}
+
+/* ============================================
+   RESULT SCREEN — Glassmorphism Card
+   ============================================ */
+
+#result-screen {
+    max-width: 600px;
+    width: 100%;
+    height: 90vh;
+    max-height: 900px;
+}
+
+#result-screen.active {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 30px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Country-specific backgrounds */
+#result-screen[data-country="japan"] {
+    background-image: linear-gradient(135deg, rgba(168, 197, 221, 0.5), rgba(123, 167, 199, 0.5)),
+                      url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%237ba7c7" width="1200" height="800"/><path fill="%23a8c5dd" opacity="0.3" d="M0 400 Q 300 300, 600 400 T 1200 400 L1200 800 L0 800 Z"/></svg>');
+}
+
+#result-screen[data-country="korea"] {
+    background-image: linear-gradient(135deg, rgba(200, 180, 140, 0.5), rgba(160, 140, 100, 0.5)),
+                      url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23a08c64" width="1200" height="800"/><path fill="%23c8b48c" opacity="0.3" d="M0 500 Q 400 400, 800 500 T 1200 500 L1200 800 L0 800 Z"/></svg>');
+}
+
+#result-screen[data-country="china"] {
+    background-image: linear-gradient(135deg, rgba(200, 160, 130, 0.5), rgba(180, 140, 110, 0.5)),
+                      url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23b48c6e" width="1200" height="800"/><path fill="%23c8a082" opacity="0.3" d="M0 450 Q 350 350, 700 450 T 1200 450 L1200 800 L0 800 Z"/></svg>');
+}
+
+#result-screen[data-country="thailand"] {
+    background-image: linear-gradient(135deg, rgba(220, 190, 140, 0.5), rgba(200, 170, 120, 0.5)),
+                      url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23c8aa78" width="1200" height="800"/><path fill="%23dcbe8c" opacity="0.3" d="M0 420 Q 320 320, 640 420 T 1200 420 L1200 800 L0 800 Z"/></svg>');
+}
+
+#result-screen[data-country="vietnam"] {
+    background-image: linear-gradient(135deg, rgba(160, 180, 140, 0.5), rgba(140, 160, 120, 0.5)),
+                      url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%238ca078" width="1200" height="800"/><path fill="%23a0b48c" opacity="0.3" d="M0 480 Q 380 380, 760 480 T 1200 480 L1200 800 L0 800 Z"/></svg>');
+}
+
+.result-card {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.card-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 40px 40px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px 30px 0 0;
+    margin: 20px 20px 0;
+    animation: cardAppear 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes cardAppear {
+    0%   { transform: scale(0.9) translateY(30px); opacity: 0; }
+    100% { transform: scale(1)   translateY(0);    opacity: 1; }
+}
+
+.country-name {
+    font-family: 'Caveat', cursive;
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+    line-height: 1;
+    text-shadow: 1px 2px 4px rgba(255, 255, 255, 0.5);
+    letter-spacing: 2px;
+}
+
+.verse-reference {
+    font-family: 'Caveat', cursive;
+    font-size: 1.8rem;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+.star-divider {
+    font-size: 1.5rem;
+    color: var(--text-dark);
+    margin: 20px 0;
+    opacity: 0.7;
+}
+
+.prayer-section {
+    margin: 30px 0;
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.prayer-points-list {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+.prayer-points-list li {
+    font-size: 1rem;
+    line-height: 1.9;
+    color: var(--text-dark);
+    margin: 8px 0;
+    font-weight: 400;
+}
+
+.prayer-points-list li:first-child {
+    color: var(--green-medium);
+    font-weight: 500;
+}
+
+.prayer-icon {
+    font-size: 2rem;
+    margin: 20px 0 15px;
+}
+
+.verse-text {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--text-dark);
+    max-width: 450px;
+    font-weight: 400;
+    margin-top: 10px;
+}
+
+.card-footer {
+    padding: 20px;
+    text-align: center;
+    margin: 0 20px 20px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0 0 30px 30px;
+    border-top: none;
+}
+
+.download-button {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 25px;
+    padding: 12px 35px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Sans KR', sans-serif;
+    width: 100%;
+    max-width: 300px;
+}
+
+.download-button:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.35);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.download-button:active {
+    transform: translateY(0);
+}
+
+/* ============================================
+   FOOTER — Logo image (small, centered bottom)
+   ============================================ */
+
+.footer {
+    text-align: center;
+    padding: 16px 20px 24px;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.brand-logo-img {
+    height: 52px;
+    width: auto;
+    object-fit: contain;
+    opacity: 0.75;
+    transition: opacity 0.3s ease;
+}
+
+.brand-logo-img:hover {
+    opacity: 0.95;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-24px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .draw-content {
+        min-height: 84vh;
+        padding: 0 16px 24px;
     }
-];
 
-// DOM Elements
-const drawScreen = document.getElementById('draw-screen');
-const loadingScreen = document.getElementById('loading-screen');
-const resultScreen = document.getElementById('result-screen');
-const drawBtn = document.getElementById('draw-btn');
-const downloadBtn = document.getElementById('download-btn');
-const countryName = document.getElementById('country-name');
-const verseReference = document.getElementById('verse-reference');
-const verseText = document.getElementById('verse-text');
-const prayerPointsList = document.getElementById('prayer-points-list');
-
-// Configuration constants
-const CONFIG = {
-    DRAW_ANIMATION_DELAY: 2000,
-    SCREEN_TRANSITION_DELAY: 300
-};
-
-// Current state
-let currentTopic = null;
-let lastDrawnIndex = -1;
-
-// Initialize
-function init() {
-    // Event listeners
-    drawBtn.addEventListener('click', handleDraw);
-    if (downloadBtn) {
-        downloadBtn.addEventListener('click', downloadImage);
+    .title-area {
+        padding-bottom: 6vh;
     }
 
-    // Keyboard shortcuts
-    document.addEventListener('keydown', handleKeyPress);
-
-    // Validate data
-    if (!prayerTopics || prayerTopics.length === 0) {
-        console.error('No prayer topics available');
-        drawBtn.disabled = true;
-    }
-}
-
-// Handle draw button click
-function handleDraw() {
-    // Switch to loading screen
-    switchScreen(drawScreen, loadingScreen);
-
-    // Simulate drawing animation
-    setTimeout(() => {
-        drawRandomTopic();
-        displayResult();
-        switchScreen(loadingScreen, resultScreen);
-    }, CONFIG.DRAW_ANIMATION_DELAY);
-}
-
-// Handle draw again - return to home
-function handleDrawAgain() {
-    switchScreen(resultScreen, drawScreen);
-    // Remove country-specific background
-    resultScreen.removeAttribute('data-country');
-}
-
-// Display the result
-function displayResult() {
-    if (!currentTopic) return;
-
-    // Set country-specific background
-    const countryId = currentTopic.country.toLowerCase().replace(/\s+/g, '');
-    resultScreen.setAttribute('data-country', countryId);
-
-    // Display country name
-    countryName.textContent = currentTopic.country;
-
-    // Display verse reference (subtitle)
-    verseReference.textContent = currentTopic.verse;
-
-    // Display main verse text at bottom
-    verseText.textContent = currentTopic.reference;
-
-    // Display prayer points
-    prayerPointsList.innerHTML = '';
-    currentTopic.prayerPoints.forEach(point => {
-        const li = document.createElement('li');
-        li.textContent = point;
-        prayerPointsList.appendChild(li);
-    });
-}
-
-// Switch between screens
-function switchScreen(fromScreen, toScreen) {
-    fromScreen.classList.remove('active');
-    setTimeout(() => {
-        toScreen.classList.add('active');
-    }, CONFIG.SCREEN_TRANSITION_DELAY);
-}
-
-// Draw a random prayer topic (prevents consecutive duplicates)
-function drawRandomTopic() {
-    if (!prayerTopics || prayerTopics.length === 0) {
-        console.error('No prayer topics available');
-        return;
+    .title-image {
+        width: 86%;
     }
 
-    let randomIndex;
-    do {
-        randomIndex = Math.floor(Math.random() * prayerTopics.length);
-    } while (randomIndex === lastDrawnIndex && prayerTopics.length > 1);
-
-    lastDrawnIndex = randomIndex;
-    currentTopic = prayerTopics[randomIndex];
-}
-
-// Keyboard shortcuts handler
-function handleKeyPress(e) {
-    // Ignore if user is typing in an input
-    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
-        return;
+    .bottom-text-image {
+        width: 76%;
     }
 
-    if (drawScreen.classList.contains('active')) {
-        // SPACE or ENTER to draw
-        if (e.code === 'Space' || e.code === 'Enter') {
-            e.preventDefault();
-            handleDraw();
-        }
-    } else if (resultScreen.classList.contains('active')) {
-        // SPACE or ENTER to draw again
-        if (e.code === 'Space' || e.code === 'Enter') {
-            e.preventDefault();
-            handleDrawAgain();
-        }
-        // ESC to go back
-        if (e.code === 'Escape') {
-            e.preventDefault();
-            handleDrawAgain();
-        }
+    .draw-button {
+        width: 82%;
+        padding: 15px 0;
+        font-size: 2rem;
+    }
+
+    .btn-icon {
+        font-size: 2rem;
+    }
+
+    #result-screen {
+        height: 85vh;
+    }
+
+    .card-content {
+        padding: 40px 25px 30px;
+        margin: 15px;
+    }
+
+    .country-name {
+        font-size: 3rem;
+    }
+
+    .verse-reference {
+        font-size: 1.5rem;
+    }
+
+    .prayer-points-list li {
+        font-size: 0.95rem;
+    }
+
+    .verse-text {
+        font-size: 0.9rem;
+    }
+
+    .brand-logo-img {
+        height: 44px;
     }
 }
 
-// Download image functionality
-async function downloadImage() {
-    if (!currentTopic) return;
+@media (max-width: 480px) {
+    .draw-content {
+        min-height: 82vh;
+        padding: 0 14px 20px;
+    }
 
-    try {
-        // Use html2canvas library
-        const script = document.createElement('script');
-        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
-        script.onload = async () => {
-            const resultCard = document.querySelector('.result-card');
+    .title-area {
+        padding-bottom: 5vh;
+    }
 
-            // Temporarily hide the download button
-            if (downloadBtn) {
-                downloadBtn.style.display = 'none';
-            }
+    .title-image {
+        width: 88%;
+        max-width: 300px;
+    }
 
-            const canvas = await html2canvas(resultCard, {
-                backgroundColor: null,
-                scale: 2,
-                logging: false,
-                useCORS: true
-            });
+    .bottom-text-image {
+        width: 78%;
+    }
 
-            // Show the button again
-            if (downloadBtn) {
-                downloadBtn.style.display = '';
-            }
+    .draw-button {
+        width: 84%;
+        max-width: 300px;
+        padding: 14px 0;
+        font-size: 1.8rem;
+    }
 
-            // Convert to blob and download
-            canvas.toBlob((blob) => {
-                const url = URL.createObjectURL(blob);
-                const link = document.createElement('a');
-                const countryName = currentTopic.country.toLowerCase();
-                link.download = `his-plan-${countryName}-${Date.now()}.png`;
-                link.href = url;
-                link.click();
-                URL.revokeObjectURL(url);
-            });
-        };
-        document.head.appendChild(script);
-    } catch (error) {
-        console.error('Failed to download image:', error);
-        alert('이미지 저장에 실패했습니다. 다시 시도해주세요.');
+    .btn-icon {
+        font-size: 1.8rem;
+    }
+
+    #result-screen {
+        height: 80vh;
+    }
+
+    .card-content {
+        padding: 30px 20px 25px;
+        margin: 10px;
+    }
+
+    .country-name {
+        font-size: 2.5rem;
+    }
+
+    .verse-reference {
+        font-size: 1.3rem;
+    }
+
+    .prayer-points-list li {
+        font-size: 0.9rem;
+        line-height: 1.7;
+    }
+
+    .verse-text {
+        font-size: 0.85rem;
+    }
+
+    .download-button {
+        font-size: 0.9rem;
+        padding: 10px 30px;
+    }
+
+    .brand-logo-img {
+        height: 38px;
     }
 }
-
-// Initialize the app
-init();
