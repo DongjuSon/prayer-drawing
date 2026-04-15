@@ -1,216 +1,156 @@
-// Prayer topics with countries and Korean text
-const prayerTopics = [
+// Prayer cards - 8 countries × 3 prayers each = 24 cards
+const prayerCards = [
+    // 인도 (India) - 3 cards
     {
-        country: "JAPAN",
-        countryKo: "일본",
-        verse: "Seeds of the Kingdom",
-        reference: "만나는 영혼들의 마음이 복음의 씨앗을 받을 줄은 받이 되도록 기도합니다",
-        prayerPoints: [
-            "또 비유를 들어 이르시되",
-            "천국은 마치 사람이 자기 밭에 갖다",
-            "심은 겨자씨 한 알 같으니",
-            "이는 모든 씨보다 작은 것이로되",
-            "자란 후에는 풀보다 커서",
-            "나무가 되매 공중의 새들이 와서",
-            "그 가지에 깃들이느니라"
-        ]
+        country: "인도",
+        topic: "Goodness of God",
+        topicVerse: "너희는 여호와의 선하심을 맛보아 알지어다 그에게 피하는 자는 복이 있도다 (시편 34:8)",
+        prayer: "모든 시간 속에서 하나님의 계획하심을 따라 나아갈 수 있도록"
     },
     {
-        country: "KOREA",
-        countryKo: "한국",
-        verse: "Light to the Nations",
-        reference: "한국 교회가 세계의 빛이 되도록 기도합니다",
-        prayerPoints: [
-            "너희는 세상의 빛이라",
-            "산 위에 있는 동네가",
-            "숨겨지지 못할 것이요",
-            "사람이 등불을 켜서",
-            "말 아래에 두지 아니하고",
-            "등경 위에 두나니",
-            "이러므로 집 안 모든 사람에게 비치느니라"
-        ]
+        country: "인도",
+        topic: "Goodness of God",
+        topicVerse: "너희는 여호와의 선하심을 맛보아 알지어다 그에게 피하는 자는 복이 있도다 (시편 34:8)",
+        prayer: "그 가운데 우릴 향한 마음과 부르심이 잘 세워질 수 있도록"
     },
     {
-        country: "CHINA",
-        countryKo: "중국",
-        verse: "Harvest is Plentiful",
-        reference: "중국의 영혼들이 추수되도록 기도합니다",
-        prayerPoints: [
-            "이에 제자들에게 이르시되",
-            "추수할 것은 많되",
-            "일꾼이 적으니",
-            "그러므로 추수하는 주인에게",
-            "청하여 추수할 일꾼들을",
-            "보내 주소서 하라 하시니라"
-        ]
+        country: "인도",
+        topic: "Goodness of God",
+        topicVerse: "너희는 여호와의 선하심을 맛보아 알지어다 그에게 피하는 자는 복이 있도다 (시편 34:8)",
+        prayer: "선교사님과 아이들에게 위로와 하나님이 함께 하신다는 확신의 시간이 될 수 있도록"
+    },
+    // 인도네시아 (Indonesia) - 3 cards
+    {
+        country: "인도네시아",
+        topic: "END, AND",
+        topicVerse: "[마26:13] 내가 진실로 너희에게 이르노니 온 천하에 어디서든지 이 복음이 전파되는 곳에서는 이 여자가 행한 일도 말하여 그를 기억하리라 하시니라",
+        prayer: "낯선 환경과 일정 속에서 지치거나 흔들리기보다 서로를 격려하며 하나의 팀으로 서도록"
     },
     {
-        country: "THAILAND",
-        countryKo: "태국",
-        verse: "Go and Make Disciples",
-        reference: "태국에 제자들이 세워지도록 기도합니다",
-        prayerPoints: [
-            "그러므로 너희는 가서",
-            "모든 민족을 제자로 삼아",
-            "아버지와 아들과 성령의 이름으로",
-            "세례를 베풀고",
-            "내가 너희에게 분부한",
-            "모든 것을 가르쳐 지키게 하라"
-        ]
+        country: "인도네시아",
+        topic: "END, AND",
+        topicVerse: "[마26:13] 내가 진실로 너희에게 이르노니 온 천하에 어디서든지 이 복음이 전파되는 곳에서는 이 여자가 행한 일도 말하여 그를 기억하리라 하시니라",
+        prayer: "더운 날씨 속에서 선교팀의 몸과 마음의 건강 지켜주시도록"
     },
     {
-        country: "VIETNAM",
-        countryKo: "베트남",
-        verse: "The Good News",
-        reference: "베트남에 복음이 전파되도록 기도합니다",
-        prayerPoints: [
-            "내가 복음을 부끄러워하지 아니하노니",
-            "이 복음은 모든 믿는 자에게",
-            "구원을 주시는",
-            "하나님의 능력이 됨이라",
-            "먼저는 유대인에게요",
-            "그리고 헬라인에게로다"
-        ]
+        country: "인도네시아",
+        topic: "END, AND",
+        topicVerse: "[마26:13] 내가 진실로 너희에게 이르노니 온 천하에 어디서든지 이 복음이 전파되는 곳에서는 이 여자가 행한 일도 말하여 그를 기억하리라 하시니라",
+        prayer: "오랜 시간 낯선 문화와 환경 속에서 사역하시는 선교사님께 새 힘과 기쁨을 부어주시고, 영적으로 소진되시지 않도록"
+    },
+    // 일본 (Japan) - 3 cards
+    {
+        country: "일본",
+        topic: "Seeds of the Kingdom",
+        topicVerse: "또 비유를 들어 이르시되 천국은 마치 사람이 자기 밭에 갖다 심은 겨자씨 한 알 같으니 이는 모든 씨보다 작은 것이로되 자란 후에는 풀보다 커서 나무가 되매 공중의 새들이 와서 그 가지에 깃들이느니라 (마 13:31~32)",
+        prayer: "만나는 영혼들의 마음이 복음의 씨앗을 받을 좋은 밭이 되도록"
     },
     {
-        country: "MONGOLIA",
-        countryKo: "몽골",
-        verse: "Streams in the Desert",
-        reference: "몽골에 생명수가 흐르도록 기도합니다",
-        prayerPoints: [
-            "보라 내가 새 일을 행하리니",
-            "이제 나타낼 것이라",
-            "너희가 그것을 알지 못하겠느냐",
-            "반드시 내가 광야에 길을",
-            "사막에 강을 내리니",
-            "내가 택한 백성이 나를 찬송하게 하려 함이라"
-        ]
+        country: "일본",
+        topic: "Seeds of the Kingdom",
+        topicVerse: "또 비유를 들어 이르시되 천국은 마치 사람이 자기 밭에 갖다 심은 겨자씨 한 알 같으니 이는 모든 씨보다 작은 것이로되 자란 후에는 풀보다 커서 나무가 되매 공중의 새들이 와서 그 가지에 깃들이느니라 (마 13:31~32)",
+        prayer: "모든 팀원들이 결과에 대한 부담보다 사랑과 순종으로 씨앗을 심는 마음을 갖도록"
     },
     {
-        country: "PHILIPPINES",
-        countryKo: "필리핀",
-        verse: "Joy in the Lord",
-        reference: "필리핀 교회에 기쁨이 넘치도록 기도합니다",
-        prayerPoints: [
-            "주 안에서 항상 기뻐하라",
-            "내가 다시 말하노니 기뻐하라",
-            "너희 관용을 모든 사람에게 알게 하라",
-            "주께서 가까우시니라",
-            "아무 것도 염려하지 말고",
-            "모든 일에 기도와 간구로 하라"
-        ]
+        country: "일본",
+        topic: "Seeds of the Kingdom",
+        topicVerse: "또 비유를 들어 이르시되 천국은 마치 사람이 자기 밭에 갖다 심은 겨자씨 한 알 같으니 이는 모든 씨보다 작은 것이로되 자란 후에는 풀보다 커서 나무가 되매 공중의 새들이 와서 그 가지에 깃들이느니라 (마 13:31~32)",
+        prayer: "이번 선교를 통해 심겨진 작은 씨앗들이 시간이 지나 하나님 나라의 나무로 자라도록"
+    },
+    // 우간다 (Uganda) - 3 cards
+    {
+        country: "우간다",
+        topic: "Clean Vessels",
+        topicVerse: "(딤후2:20-21) 큰 집에는 금 그릇과 은 그릇뿐 아니라 나무 그릇과 질그릇도 있어 귀하게 쓰는 것도 있고 천하게 쓰는 것도 있나니 그러므로 누구든지 이런 것에서 자기를 깨끗하게 하면 귀히 쓰는 그릇이 되어 거룩하고 주인의 쓰심에 합당하며 모든 선한 일에 준비함이 되리라",
+        prayer: "모든 팀원이 깨끗한 그릇이 되어 하나님의 선하심을 나타내는 통로가 되게 하소서"
     },
     {
-        country: "INDIA",
-        countryKo: "인도",
-        verse: "Many Nations",
-        reference: "인도의 수많은 민족이 주님을 알도록 기도합니다",
-        prayerPoints: [
-            "이 천국 복음이",
-            "모든 민족에게 증언되기 위하여",
-            "온 세상에 전파되리니",
-            "그제야 끝이 오리라",
-            "주의 이름을 부르는 자마다",
-            "구원을 받으리라"
-        ]
+        country: "우간다",
+        topic: "Clean Vessels",
+        topicVerse: "(딤후2:20-21) 큰 집에는 금 그릇과 은 그릇뿐 아니라 나무 그릇과 질그릇도 있어 귀하게 쓰는 것도 있고 천하게 쓰는 것도 있나니 그러므로 누구든지 이런 것에서 자기를 깨끗하게 하면 귀히 쓰는 그릇이 되어 거룩하고 주인의 쓰심에 합당하며 모든 선한 일에 준비함이 되리라",
+        prayer: "예배에 능한 팀이 되게 하셔서 거룩함과 순전함으로 주님의 이름만을 높여드리게 하소서"
     },
     {
-        country: "MYANMAR",
-        countryKo: "미얀마",
-        verse: "Peace and Hope",
-        reference: "미얀마에 평화와 소망이 임하도록 기도합니다",
-        prayerPoints: [
-            "평강의 하나님이",
-            "친히 너희를 온전히 거룩하게 하시고",
-            "너희의 온 영과 혼과 몸이",
-            "우리 주 예수 그리스도께서",
-            "강림하실 때에",
-            "흠 없게 보전되기를 원하노라"
-        ]
+        country: "우간다",
+        topic: "Clean Vessels",
+        topicVerse: "(딤후2:20-21) 큰 집에는 금 그릇과 은 그릇뿐 아니라 나무 그릇과 질그릇도 있어 귀하게 쓰는 것도 있고 천하게 쓰는 것도 있나니 그러므로 누구든지 이런 것에서 자기를 깨끗하게 하면 귀히 쓰는 그릇이 되어 거룩하고 주인의 쓰심에 합당하며 모든 선한 일에 준비함이 되리라",
+        prayer: "우간다를 사랑으로 품게 하시고 행하는 모든 일을 통해 그리스도의 사랑과 은혜가 전해지게 하소서"
+    },
+    // 베트남 (Vietnam) - 3 cards
+    {
+        country: "베트남",
+        topic: "Deep to Deep",
+        topicVerse: "주의 폭포 소리에 깊은 바다가 서로 부르며 주의 모든 파도와 물결이 나를 휩쓸었나이다 (시 42:7)",
+        prayer: "전 팀원이 하나의 깊은 바다처럼 연결되어, 지치지 않는 기쁨과 뜨거운 사랑으로 끝까지 하나 됨을 이루도록"
     },
     {
-        country: "CAMBODIA",
-        countryKo: "캄보디아",
-        verse: "Healing and Restoration",
-        reference: "캄보디아의 치유와 회복을 위해 기도합니다",
-        prayerPoints: [
-            "여호와께서 상심한 자를 고치시며",
-            "그들의 상처를 싸매시는도다",
-            "그는 마음이 상한 자를 고치시며",
-            "그들의 아픔을 싸매시는도다",
-            "주께서 온유한 자를 붙드시고",
-            "악인을 땅에 엎으시는도다"
-        ]
+        country: "베트남",
+        topic: "Deep to Deep",
+        topicVerse: "주의 폭포 소리에 깊은 바다가 서로 부르며 주의 모든 파도와 물결이 나를 휩쓸었나이다 (시 42:7)",
+        prayer: "우리의 발걸음이 머무는 곳마다 생명의 강물이 흘러 넘쳐 영혼이 살아나고 말씀이 회복되도록"
     },
     {
-        country: "LAOS",
-        countryKo: "라오스",
-        verse: "Open Doors",
-        reference: "라오스에 복음의 문이 열리도록 기도합니다",
-        prayerPoints: [
-            "볼지어다 내가 네 앞에",
-            "열린 문을 두었으되",
-            "능히 닫을 사람이 없으리라",
-            "내가 네 행위를 아노니",
-            "네가 적은 능력을 가지고도",
-            "내 말을 지키며 내 이름을 배반하지 아니하였도다"
-        ]
+        country: "베트남",
+        topic: "Deep to Deep",
+        topicVerse: "주의 폭포 소리에 깊은 바다가 서로 부르며 주의 모든 파도와 물결이 나를 휩쓸었나이다 (시 42:7)",
+        prayer: "선교사님과 사역자 분들이 깊은 안식과 평안 가운데 날마다 쏟아지는 폭포수 같은 새 힘을 경험하시도록"
+    },
+    // 네팔 (Nepal) - 3 cards
+    {
+        country: "네팔",
+        topic: "Press On",
+        topicVerse: "푯대를 향하여 그리스도 예수 안에서 하나님이 위에서 부르신 부름의 상을 위하여 달려가노라 (빌3:14)",
+        prayer: "모든 팀원이 선교의 목적을 분명히 붙들고, 끝까지 한마음으로 준비하고 나아가게 하소서"
     },
     {
-        country: "TAIWAN",
-        countryKo: "대만",
-        verse: "Strong Foundation",
-        reference: "대만 교회의 견고한 기초를 위해 기도합니다",
-        prayerPoints: [
-            "그러므로 누구든지",
-            "나의 이 말을 듣고 행하는 자는",
-            "그 집을 반석 위에 지은",
-            "지혜로운 사람 같으리니",
-            "비가 내리고 창수가 나고",
-            "바람이 불어도 무너지지 아니하느니라"
-        ]
+        country: "네팔",
+        topic: "Press On",
+        topicVerse: "푯대를 향하여 그리스도 예수 안에서 하나님이 위에서 부르신 부름의 상을 위하여 달려가노라 (빌3:14)",
+        prayer: "어린이사역, 문화사역, 센터보수의 모든 일정 가운데 하나님께서 먼저 일하시고 현지에 꼭 필요한 은혜를 허락하소서"
     },
     {
-        country: "NEPAL",
-        countryKo: "네팔",
-        verse: "Mountain Faith",
-        reference: "네팔의 산들에서 찬양이 울려퍼지도록 기도합니다",
-        prayerPoints: [
-            "너희가 만일 믿음이 있고",
-            "의심하지 아니하면",
-            "이 산더러 들려",
-            "바다에 던져지라 하여도",
-            "그대로 되리라",
-            "기도할 때에 무엇이든지 믿고 구하면 다 받으리라"
-        ]
+        country: "네팔",
+        topic: "Press On",
+        topicVerse: "푯대를 향하여 그리스도 예수 안에서 하나님이 위에서 부르신 부름의 상을 위하여 달려가노라 (빌3:14)",
+        prayer: "네팔 땅 가운데 복음의 문을 열어 주시고, 만나는 영혼들과 공동체 위에 예수 그리스도의 사랑이 깊이 전해지게 하소서"
+    },
+    // 상주 (Sangju) - 3 cards
+    {
+        country: "상주",
+        topic: "Faith from Hearing",
+        topicVerse: "그러나 그들이 다 복음을 순종하지 아니하였도다 이사야가 이르되 주여 우리가 전한 것을 누가 믿었나이까 하였으니 그러므로 믿음은 들음에서 나며 들음은 그리스도의 말씀으로 말미암았느니라 그러나 내가 말하노니 그들이 듣지 아니하였느냐 그렇지 아니하니 그 소리가 온 땅에 퍼졌고 그 말씀이 땅 끝까지 이르렀도다 하였느니라 (롬 10:16~18)",
+        prayer: "복음을 전하는 일에 부끄러워하지 않고 담대히 나의 하나님, 우리의 하나님을 전하는 청년들이 될 수 있도록"
     },
     {
-        country: "MALAYSIA",
-        countryKo: "말레이시아",
-        verse: "Unity in Diversity",
-        reference: "말레이시아의 다양성 속 연합을 위해 기도합니다",
-        prayerPoints: [
-            "몸은 하나인데 많은 지체가 있고",
-            "몸의 지체가 많으나",
-            "한 몸임과 같이",
-            "그리스도도 그러하니라",
-            "우리가 유대인이나 헬라인이나",
-            "다 한 성령으로 세례를 받아 한 몸이 되었느니라"
-        ]
+        country: "상주",
+        topic: "Faith from Hearing",
+        topicVerse: "그러나 그들이 다 복음을 순종하지 아니하였도다 이사야가 이르되 주여 우리가 전한 것을 누가 믿었나이까 하였으니 그러므로 믿음은 들음에서 나며 들음은 그리스도의 말씀으로 말미암았느니라 그러나 내가 말하노니 그들이 듣지 아니하였느냐 그렇지 아니하니 그 소리가 온 땅에 퍼졌고 그 말씀이 땅 끝까지 이르렀도다 하였느니라 (롬 10:16~18)",
+        prayer: "복음은 들음에서 나고, 들음은 그리스도의 말씀에서 말미암았다는 말씀을 믿음으로 나아가 상주 땅의 많은 이들이 복음을 들을 수 있도록"
     },
     {
-        country: "SINGAPORE",
-        countryKo: "싱가포르",
-        verse: "City on a Hill",
-        reference: "싱가포르가 아시아의 등대가 되도록 기도합니다",
-        prayerPoints: [
-            "너희는 세상의 빛이라",
-            "산 위에 있는 동네가",
-            "숨겨지지 못할 것이요",
-            "이같이 너희 빛이",
-            "사람 앞에 비치게 하여",
-            "그들로 너희 착한 행실을 보고 하늘에 계신 아버지께 영광을 돌리게 하라"
-        ]
+        country: "상주",
+        topic: "Faith from Hearing",
+        topicVerse: "그러나 그들이 다 복음을 순종하지 아니하였도다 이사야가 이르되 주여 우리가 전한 것을 누가 믿었나이까 하였으니 그러므로 믿음은 들음에서 나며 들음은 그리스도의 말씀으로 말미암았느니라 그러나 내가 말하노니 그들이 듣지 아니하였느냐 그렇지 아니하니 그 소리가 온 땅에 퍼졌고 그 말씀이 땅 끝까지 이르렀도다 하였느니라 (롬 10:16~18)",
+        prayer: "성령님의 권능으로 말미암아 복음을 전할 때에 청년들을 통해서 일하시는 하나님의 크신 능력을 경험할 수 있도록"
+    },
+    // 당진 (Dangjin) - 3 cards
+    {
+        country: "당진",
+        topic: "Remember Me!",
+        topicVerse: "이르되 예수여 당신의 나라에 임하실 때에 나를 기억하소서 하니 (눅 23:42)",
+        prayer: "우리가 만나게 될 어린이들이 하나님 복음을 들고 당진 땅에서 찬양하는 믿음의 자녀로 거듭나게 하시길"
+    },
+    {
+        country: "당진",
+        topic: "Remember Me!",
+        topicVerse: "이르되 예수여 당신의 나라에 임하실 때에 나를 기억하소서 하니 (눅 23:42)",
+        prayer: "팀 인원 전체가 하나님 안에서 하나 되게 하시고 안전 지켜주시길"
+    },
+    {
+        country: "당진",
+        topic: "Remember Me!",
+        topicVerse: "이르되 예수여 당신의 나라에 임하실 때에 나를 기억하소서 하니 (눅 23:42)",
+        prayer: "사역에 담기는 모든 사람들이 '주님 나를 기억하소서' 라고 선포하는 시간이 되길"
     }
 ];
 
@@ -232,7 +172,7 @@ const CONFIG = {
 };
 
 // Current state
-let currentTopic = null;
+let currentCard = null;
 let lastDrawnIndex = -1;
 
 // Initialize
@@ -247,8 +187,8 @@ function init() {
     document.addEventListener('keydown', handleKeyPress);
 
     // Validate data
-    if (!prayerTopics || prayerTopics.length === 0) {
-        console.error('No prayer topics available');
+    if (!prayerCards || prayerCards.length === 0) {
+        console.error('No prayer cards available');
         drawBtn.disabled = true;
     }
 }
@@ -260,7 +200,7 @@ function handleDraw() {
 
     // Simulate drawing animation
     setTimeout(() => {
-        drawRandomTopic();
+        drawRandomCard();
         displayResult();
         switchScreen(loadingScreen, resultScreen);
     }, CONFIG.DRAW_ANIMATION_DELAY);
@@ -275,28 +215,26 @@ function handleDrawAgain() {
 
 // Display the result
 function displayResult() {
-    if (!currentTopic) return;
+    if (!currentCard) return;
 
     // Set country-specific background
-    const countryId = currentTopic.country.toLowerCase().replace(/\s+/g, '');
+    const countryId = currentCard.country.toLowerCase().replace(/\s+/g, '');
     resultScreen.setAttribute('data-country', countryId);
 
     // Display country name
-    countryName.textContent = currentTopic.country;
+    countryName.textContent = currentCard.country;
 
-    // Display verse reference (subtitle)
-    verseReference.textContent = currentTopic.verse;
+    // Display topic (subtitle)
+    verseReference.textContent = currentCard.topic;
 
-    // Display main verse text at bottom
-    verseText.textContent = currentTopic.reference;
+    // Display topic verse at bottom
+    verseText.textContent = currentCard.topicVerse;
 
-    // Display prayer points
+    // Display single prayer request
     prayerPointsList.innerHTML = '';
-    currentTopic.prayerPoints.forEach(point => {
-        const li = document.createElement('li');
-        li.textContent = point;
-        prayerPointsList.appendChild(li);
-    });
+    const li = document.createElement('li');
+    li.textContent = currentCard.prayer;
+    prayerPointsList.appendChild(li);
 }
 
 // Switch between screens
@@ -307,20 +245,20 @@ function switchScreen(fromScreen, toScreen) {
     }, CONFIG.SCREEN_TRANSITION_DELAY);
 }
 
-// Draw a random prayer topic (prevents consecutive duplicates)
-function drawRandomTopic() {
-    if (!prayerTopics || prayerTopics.length === 0) {
-        console.error('No prayer topics available');
+// Draw a random prayer card (prevents consecutive duplicates)
+function drawRandomCard() {
+    if (!prayerCards || prayerCards.length === 0) {
+        console.error('No prayer cards available');
         return;
     }
 
     let randomIndex;
     do {
-        randomIndex = Math.floor(Math.random() * prayerTopics.length);
-    } while (randomIndex === lastDrawnIndex && prayerTopics.length > 1);
+        randomIndex = Math.floor(Math.random() * prayerCards.length);
+    } while (randomIndex === lastDrawnIndex && prayerCards.length > 1);
 
     lastDrawnIndex = randomIndex;
-    currentTopic = prayerTopics[randomIndex];
+    currentCard = prayerCards[randomIndex];
 }
 
 // Keyboard shortcuts handler
@@ -352,7 +290,7 @@ function handleKeyPress(e) {
 
 // Download image functionality
 async function downloadImage() {
-    if (!currentTopic) return;
+    if (!currentCard) return;
 
     try {
         // Use html2canvas library
@@ -360,10 +298,11 @@ async function downloadImage() {
         script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
         script.onload = async () => {
             const resultCard = document.querySelector('.result-card');
+            const cardFooter = document.querySelector('.card-footer');
 
-            // Temporarily hide the download button
-            if (downloadBtn) {
-                downloadBtn.style.display = 'none';
+            // Temporarily hide the card footer (including download button)
+            if (cardFooter) {
+                cardFooter.style.display = 'none';
             }
 
             const canvas = await html2canvas(resultCard, {
@@ -373,17 +312,18 @@ async function downloadImage() {
                 useCORS: true
             });
 
-            // Show the button again
-            if (downloadBtn) {
-                downloadBtn.style.display = '';
+            // Show the footer again
+            if (cardFooter) {
+                cardFooter.style.display = '';
             }
 
             // Convert to blob and download
             canvas.toBlob((blob) => {
                 const url = URL.createObjectURL(blob);
                 const link = document.createElement('a');
-                const countryName = currentTopic.country.toLowerCase();
-                link.download = `his-plan-${countryName}-${Date.now()}.png`;
+                const countryName = currentCard.country.replace(/\s+/g, '-').toLowerCase();
+                const timestamp = new Date().toISOString().slice(0, 10);
+                link.download = `prayer-${countryName}-${timestamp}.png`;
                 link.href = url;
                 link.click();
                 URL.revokeObjectURL(url);
