@@ -400,33 +400,48 @@ body::before {
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 0 0 30px 30px;
     border-top: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .download-button {
-    background: rgba(255, 255, 255, 0.25);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 25px;
-    padding: 12px 35px;
-    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    padding: 14px 40px;
+    font-size: 0.95rem;
     font-weight: 500;
     color: var(--text-dark);
     cursor: pointer;
     transition: all 0.3s ease;
     font-family: 'Noto Sans KR', sans-serif;
     width: 100%;
-    max-width: 300px;
+    max-width: 280px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 0 auto;
 }
 
 .download-button:hover {
     transform: translateY(-2px);
-    background: rgba(255, 255, 255, 0.35);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
 }
 
 .download-button:active {
     transform: translateY(0);
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.download-button span[aria-hidden="true"] {
+    font-size: 1.1rem;
+    opacity: 0.85;
 }
 
 /* ============================================
