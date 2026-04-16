@@ -604,4 +604,67 @@ body::before {
     .brand-logo-img {
         height: 38px;
     }
+
+    #result-screen.image-mode {
+        height: auto;
+        max-height: none;
+    }
+
+    .prayer-card-image {
+        max-width: 90%;
+    }
+}
+
+/* ============================================
+   IMAGE MODE STYLES - Prayer Card Display
+   ============================================ */
+
+/* When displaying generated card images */
+#result-screen.image-mode {
+    height: auto;
+    max-height: none;
+    min-height: auto;
+    display: flex;
+    align-items: center;
+    background: none !important;
+    border-radius: 0;
+}
+
+#result-screen.image-mode .result-card {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    gap: 20px;
+}
+
+.card-image-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.prayer-card-image {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    display: block;
+}
+
+#result-screen.image-mode .card-footer {
+    width: 100%;
+    max-width: 500px;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+}
+
+#result-screen.image-mode .download-button {
+    width: 100%;
+    max-width: 500px;
 }
