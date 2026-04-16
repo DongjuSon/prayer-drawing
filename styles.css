@@ -47,6 +47,16 @@ body::before {
     z-index: 0;
 }
 
+/* Hide homepage background when showing result page */
+body.result-mode {
+    background-image: none;
+    background-color: #f5f5f5;
+}
+
+body.result-mode::before {
+    display: none;
+}
+
 .container {
     flex: 1;
     display: flex;
