@@ -236,6 +236,9 @@ function handleDrawAgain() {
     // Remove country-specific background and image mode
     resultScreen.removeAttribute('data-country');
     resultScreen.classList.remove('image-mode');
+
+    // Remove result-mode class from body to restore homepage background
+    document.body.classList.remove('result-mode');
 }
 
 // Display the result
@@ -247,6 +250,9 @@ function displayResult() {
 
     // Add image mode class to result screen
     resultScreen.classList.add('image-mode');
+
+    // Add result-mode class to body to hide homepage background
+    document.body.classList.add('result-mode');
 
     // Clear existing content
     resultCard.innerHTML = '';
